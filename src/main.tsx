@@ -11,7 +11,6 @@ import 'virtual:svg-icons-register';
 
 import App from '@/App';
 
-import { worker } from './_mock';
 // i18n
 import './locales/i18n';
 // tailwind css
@@ -54,5 +53,5 @@ root.render(
   </HelmetProvider>,
 );
 
-// 🥵 start service worker mock in development mode
-worker.start({ onUnhandledRequest: 'bypass' });
+// 不再使用 mock 数据，调用 nest 后端获取
+// worker.start({ onUnhandledRequest: 'bypass' });

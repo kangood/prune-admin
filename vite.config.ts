@@ -31,13 +31,11 @@ export default defineConfig({
     }),
   ],
   server: {
-    // 自动打开浏览器
-    open: true,
     host: true,
-    port: 3001,
+    port: 7442,
     proxy: {
       '/api': {
-        target: 'http://localhost:3000',
+        target: 'http://127.0.0.1:7441',
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api/, ''),
       },
