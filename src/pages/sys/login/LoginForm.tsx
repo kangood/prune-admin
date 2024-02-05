@@ -21,10 +21,10 @@ function LoginForm() {
 
   if (loginState !== LoginStateEnum.LOGIN) return null;
 
-  const handleFinish = async ({ username, password }: SignInReq) => {
+  const handleFinish = async ({ account, password }: SignInReq) => {
     setLoading(true);
     try {
-      await signIn({ username, password });
+      await signIn({ account, password });
     } finally {
       setLoading(false);
     }
@@ -37,7 +37,7 @@ function LoginForm() {
         size="large"
         initialValues={{
           remember: true,
-          username: DEFAULT_USER.username,
+          account: DEFAULT_USER.account,
           password: DEFAULT_USER.password,
         }}
         onFinish={handleFinish}
@@ -48,16 +48,16 @@ function LoginForm() {
             description={
               <div className="flex flex-col">
                 <div className="flex">
-                  <ProTag className="flex-shrink-0">Admin {t('sys.login.userName')}:</ProTag>
+                  <ProTag className="flex-shrink-0">Admin {t('sys.login.account')}:</ProTag>
                   <strong className="ml-1" style={{ color: themeToken.colorInfoTextHover }}>
-                    <span>{DEFAULT_USER.username}</span>
+                    <span>{DEFAULT_USER.account}</span>
                   </strong>
                 </div>
 
                 <div className="flex">
-                  <ProTag className="flex-shrink-0">Test {t('sys.login.userName')}:</ProTag>
+                  <ProTag className="flex-shrink-0">Test {t('sys.login.account')}:</ProTag>
                   <strong className="ml-1" style={{ color: themeToken.colorInfoTextHover }}>
-                    <span>{TEST_USER.username}</span>
+                    <span>{TEST_USER.account}</span>
                   </strong>
                 </div>
 
@@ -74,10 +74,10 @@ function LoginForm() {
         </div>
 
         <Form.Item
-          name="username"
+          name="account"
           rules={[{ required: true, message: t('sys.login.accountPlaceholder') }]}
         >
-          <Input placeholder={t('sys.login.userName')} />
+          <Input placeholder={t('sys.login.account')} />
         </Form.Item>
         <Form.Item
           name="password"

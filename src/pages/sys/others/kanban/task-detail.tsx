@@ -104,12 +104,12 @@ export default function TaskDetail({ task }: Props) {
           padding: '24px 20px 40px',
         }}
       >
-        {comments?.map(({ avatar, username, content, time }) => (
-          <div key={username} className="flex gap-4">
+        {comments?.map(({ avatar, account, content, time }) => (
+          <div key={account} className="flex gap-4">
             <Avatar src={avatar} size={40} className="flex-shrink-0" />
             <div className="flex flex-grow flex-col flex-wrap gap-1 text-gray">
               <div className="flex justify-between">
-                <Typography.Text>{username}</Typography.Text>
+                <Typography.Text>{account}</Typography.Text>
                 <Typography.Text>{dayjs(time).format('DD/MM/YYYY HH:mm')}</Typography.Text>
               </div>
               <p>{content}</p>

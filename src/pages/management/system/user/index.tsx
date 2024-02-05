@@ -23,7 +23,7 @@ export default function RolePage() {
           <div className="flex">
             <img alt="" src={record.avatar} className="h-10 w-10 rounded-full" />
             <div className="ml-2 flex flex-col">
-              <span className="text-sm">{record.username}</span>
+              <span className="text-sm">{record.account}</span>
               <span style={{ color: colorTextSecondary }} className="text-xs">
                 {record.email}
               </span>

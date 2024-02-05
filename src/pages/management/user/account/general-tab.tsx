@@ -16,9 +16,9 @@ type FieldType = {
 };
 export default function GeneralTab() {
   const { notification } = App.useApp();
-  const { avatar, username, email } = useUserInfo();
+  const { avatar, account, email } = useUserInfo();
   const initFormValues = {
-    name: username,
+    name: account,
     email,
     phone: faker.phone.number(),
     address: faker.location.county(),
@@ -58,7 +58,7 @@ export default function GeneralTab() {
           >
             <Row gutter={16}>
               <Col span={12}>
-                <Form.Item<FieldType> label="Username" name="name">
+                <Form.Item<FieldType> label="Account" name="name">
                   <Input />
                 </Form.Item>
               </Col>

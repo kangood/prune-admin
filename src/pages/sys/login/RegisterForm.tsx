@@ -25,10 +25,10 @@ function RegisterForm() {
       <div className="mb-4 text-2xl font-bold xl:text-3xl">{t('sys.login.signUpFormTitle')}</div>
       <Form name="normal_login" size="large" initialValues={{ remember: true }} onFinish={onFinish}>
         <Form.Item
-          name="username"
+          name="account"
           rules={[{ required: true, message: t('sys.login.accountPlaceholder') }]}
         >
-          <Input placeholder={t('sys.login.userName')} />
+          <Input placeholder={t('sys.login.account')} />
         </Form.Item>
         <Form.Item
           name="email"

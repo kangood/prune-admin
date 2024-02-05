@@ -12,7 +12,7 @@ import ProjectsTab from './projects-tab';
 import TeamsTab from './teams-tab';
 
 function UserProfile() {
-  const { avatar, username } = useUserInfo();
+  const { avatar, account } = useUserInfo();
   const { colorTextBase } = useThemeToken();
   const [currentTabIndex, setcurrentTabIndex] = useState(0);
 
@@ -55,7 +55,7 @@ function UserProfile() {
               className="ml-6 mt-6 flex flex-col justify-center md:mt-0"
               style={{ color: '#fff' }}
             >
-              <span className="mb-2 text-2xl font-medium">{username}</span>
+              <span className="mb-2 text-2xl font-medium">{account}</span>
               <span className="text-center opacity-50 md:text-left">TS FullStack</span>
             </div>
           </div>

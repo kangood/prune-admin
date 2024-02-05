@@ -17,7 +17,7 @@ export enum TaskTag {
 }
 
 export type TaskComment = {
-  username: string;
+  account: string;
   avatar: string;
   content: string;
   time: Date;

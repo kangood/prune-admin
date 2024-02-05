@@ -52,7 +52,7 @@
       "loginSuccessTitle": "Login successful",
       "loginSuccessDesc": "Welcome back",
 
-      "accountPlaceholder": "Please input username",
+      "accountPlaceholder": "Please input account",
       "passwordPlaceholder": "Please input password",
       "confirmPasswordPlaceholder": "Please input confirm password",
       "emaildPlaceholder": "Please input email",
@@ -61,7 +61,7 @@
       "policyPlaceholder": "Register after checking",
       "diffPwd": "The two passwords are inconsistent",
 
-      "userName": "Username",
+      "account": "Account",
       "password": "Password",
       "confirmPassword": "Confirm Password",
       "email": "Email",

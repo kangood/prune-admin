@@ -6,7 +6,7 @@ import { useUserInfo } from '@/store/userStore';
 import { useThemeToken } from '@/theme/hooks';
 
 export default function BannerCard() {
-  const { username } = useUserInfo();
+  const { account } = useUserInfo();
   const themeToken = useThemeToken();
 
   const bg = `linear-gradient(135deg, ${Color(themeToken.colorPrimaryHover).alpha(0.2)}, ${Color(
@@ -26,7 +26,7 @@ export default function BannerCard() {
           style={{ color: themeToken.colorPrimaryActive }}
         >
           <h4>Welcome back 👋 </h4>
-          <h4>{username}</h4>
+          <h4>{account}</h4>
         </div>
         <p
           style={{ color: themeToken.colorPrimaryTextActive }}

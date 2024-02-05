@@ -3,7 +3,7 @@ import apiClient from '../apiClient';
 import { UserInfo, UserToken } from '#/entity';
 
 export interface SignInReq {
-  username: string;
+  account: string;
   password: string;
 }
 

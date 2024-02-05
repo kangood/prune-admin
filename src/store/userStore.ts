@@ -67,7 +67,7 @@ export const useSignIn = () => {
 
       notification.success({
         message: t('sys.login.loginSuccessTitle'),
-        description: `${t('sys.login.loginSuccessDesc')}: ${data.username}`,
+        description: `${t('sys.login.loginSuccessDesc')}: ${data.account}`,
         duration: 3,
       });
     } catch (err) {

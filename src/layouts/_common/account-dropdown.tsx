@@ -17,7 +17,7 @@ const { VITE_APP_HOMEPAGE: HOMEPAGE } = import.meta.env;
  */
 export default function AccountDropdown() {
   const { replace } = useRouter();
-  const { username, email, avatar } = useUserInfo();
+  const { account, email, avatar } = useUserInfo();
   const { clearUserInfoAndToken } = useUserActions();
   const { backToLogin } = useLoginStateContext();
   const { t } = useTranslation();
@@ -48,7 +48,7 @@ export default function AccountDropdown() {
   const dropdownRender: DropdownProps['dropdownRender'] = (menu) => (
     <div style={contentStyle}>
       <div className="flex flex-col items-start p-4">
-        <div>{username}</div>
+        <div>{account}</div>
         <div className="text-gray">{email}</div>
       </div>
       <Divider style={{ margin: 0 }} />

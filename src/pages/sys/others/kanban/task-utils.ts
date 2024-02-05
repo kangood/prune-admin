@@ -6,7 +6,7 @@ const fakeComment = (count: number): TaskComment[] => {
   const result = [];
   for (let index = 0; index < count; index += 1) {
     result.push({
-      username: faker.person.fullName(),
+      account: faker.person.fullName(),
       avatar: faker.image.avatarLegacy(),
       content: faker.lorem.lines({ min: 1, max: 3 }),
       time: faker.date.past(),

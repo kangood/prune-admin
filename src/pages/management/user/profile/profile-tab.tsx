@@ -21,15 +21,15 @@ interface DataType {
 }
 
 export default function ProfileTab() {
-  const { username } = useUserInfo();
+  const { account } = useUserInfo();
   const theme = useThemeToken();
   const AboutItems = [
-    { icon: <Iconify icon="fa-solid:user" size={18} />, label: 'Full Name', val: username },
+    { icon: <Iconify icon="fa-solid:user" size={18} />, label: 'Full Name', val: account },
     { icon: <Iconify icon="eos-icons:role-binding" size={18} />, label: 'Role', val: 'Developer' },
     { icon: <Iconify icon="tabler:location-filled" size={18} />, label: 'Country', val: 'USA' },
     { icon: <Iconify icon="ion:language" size={18} />, label: 'Language', val: 'English' },
     { icon: <Iconify icon="ph:phone-fill" size={18} />, label: 'Contact', val: '(123)456-7890' },
-    { icon: <Iconify icon="ic:baseline-email" size={18} />, label: 'Email', val: username },
+    { icon: <Iconify icon="ic:baseline-email" size={18} />, label: 'Email', val: account },
   ];
 
   const ConnectionsItems = [

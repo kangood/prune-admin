@@ -6,15 +6,15 @@ import { UserApi } from '@/api/services/userService';
 import { USER_LIST } from './assets';
 
 const signIn = rest.post(`/api${UserApi.SignIn}`, async (req, res, ctx) => {
-  const { username, password } = await req.json();
+  const { account, password } = await req.json();
 
-  const user = USER_LIST.find((item) => item.username === username);
+  const user = USER_LIST.find((item) => item.account === account);
 
   if (!user || user.password !== password) {
     return res(
       ctx.json({
         status: 10001,
-        message: 'Incorrect username or password.',
+        message: 'Incorrect account or password.',
       }),
     );
   }
