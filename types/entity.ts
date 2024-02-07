@@ -11,7 +11,7 @@ export interface UserInfo {
   account: string;
   password?: string;
   avatar?: string;
-  role?: Role;
+  roles?: Role;
   status?: BasicStatus;
   permissions?: Permission[];
 }
