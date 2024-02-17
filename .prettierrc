@@ -1,0 +1,21 @@
+{
+  "singleQuote": true,
+  "trailingComma": "all", 
+  "printWidth": 100, 
+  "proseWrap": "never", 
+  "endOfLine": "auto", 
+  "semi": true, 
+  "tabWidth": 4,
+  "htmlWhitespaceSensitivity": "strict", 
+  "overrides": [
+    {
+      "files": "*rc",
+      "options": {
+        "parser": "json"
+      }
+    }
+  ],
+  "plugins": [
+    "prettier-plugin-tailwindcss"
+  ]
+}
