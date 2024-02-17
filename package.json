@@ -62,6 +62,7 @@
     "zustand": "^4.4.3"
   },
   "devDependencies": {
+    "@antv/g2plot": "^2.4.31",
     "@commitlint/cli": "^17.7.2",
     "@commitlint/config-conventional": "^17.7.0",
     "@faker-js/faker": "^8.1.0",
