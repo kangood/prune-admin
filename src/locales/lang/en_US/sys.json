@@ -138,6 +138,20 @@
         "404": "404",
         "500": "500"
       }
+    },
+    "menu2": {
+      "setting": {
+        "index": "Setting",
+        "menu": "Menu",
+        "dictionary": "Dictionary",
+        "parameter": "Parameter"
+      },
+      "org": {
+        "index": "Org",
+        "org": "Institution",
+        "station": "Station",
+        "user": "User"
+      }
     }
   }
 }
