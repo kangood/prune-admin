@@ -1,144 +1,172 @@
 module.exports = {
-  root: true, // 表示当前目录即为根目录，ESLint 规则将被限制到该目录下
-  env: { browser: true, es2020: true, node: true },
-  /* 解析器 */
-  parser: '@typescript-eslint/parser', // 指定ESLint解析器
-  parserOptions: {
-    project: './tsconfig.json', // tsconfig.json的路径
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    ecmaFeatures: {
-      jsx: true, // 启用JSX
+    parser: '@typescript-eslint/parser',
+    parserOptions: {
+        // 指定ESLint可以解析JSX语法
+        ecmaVersion: 'latest',
+        sourceType: 'module',
+        project: './tsconfig.json', // tsconfig.json的路径
+        // React启用jsx
+        ecmaFeatures: {
+            jsx: true,
+        },
     },
-    extraFileExtensions: ['.json'],
-  },
-  settings: {
-    // 识别 @ # alias
-    'import/resolver': {
-      alias: {
-        map: [
-          ['@', './src'],
-          ['#', './types'],
-        ],
-        extensions: ['.ts', '.tsx', '.js', '.jsx', '.json'],
-      },
+    env: {
+        es6: true,
+        browser: true,
+        jest: true,
+        node: true,
     },
-  },
-  /* ESLint 中基础配置需要继承的配置 */
-  extends: [
-    'airbnb',
-    'airbnb-typescript',
-    'airbnb/hooks',
-    'plugin:@typescript-eslint/recommended', // 使用@typescript-eslint/eslint-plugin推荐的规则
-    'plugin:jsx-a11y/recommended',
-    'plugin:import/errors',
-    'plugin:import/warnings',
-    'prettier', // 增加 prettier 相关的校验规则
-    'plugin:prettier/recommended', // 开启 Prettier 插件推荐的规则
-  ],
-  /* ESLint文件所依赖的插件 */
-  plugins: [
-    '@typescript-eslint',
-    'prettier',
-    'react',
-    'react-hooks',
-    'jsx-a11y',
-    'import',
-    'unused-imports',
-  ],
-  /**
-   * 定义规则
-   * "off" 或 0 - 关闭规则
-   * "warn" 或 1 - 开启规则，使用警告级别的错误：warn (不会导致程序退出)
-   * "error" 或 2 - 开启规则，使用错误级别的错误：error (当被触发的时候，程序会退出)
-   */
-  rules: {
-    'no-console': 'off',
-    'no-unused-vars': 'off',
-    'no-case-declarations': 'off',
-    'no-use-before-define': 'off',
-    'no-param-reassign': 'off',
-    'space-before-function-paren': 'off',
-    'class-methods-use-this': 'off',
+    plugins: ['@typescript-eslint', 'prettier', 'import', 'unused-imports'],
+    extends: [
+        // airbnb规范
+        // https://github.com/airbnb/javascript/tree/master/packages/eslint-config-airbnb
+        'airbnb',
+        // 兼容typescript的airbnb规范
+        // https://github.com/iamturns/eslint-config-airbnb-typescript
+        'airbnb-typescript',
+        // react hooks的airbnb规范
+        'airbnb/hooks',
 
-    'jsx-a11y/click-events-have-key-events': 'off',
-    'jsx-a11y/interactive-supports-focus': 'off',
-    'jsx-a11y/no-noninteractive-element-interactions': 'off',
-    'jsx-a11y/no-static-element-interactions': 'off',
+        // typescript的eslint插件
+        // https://github.com/typescript-eslint/typescript-eslint/blob/master/docs/getting-started/linting/README.md
+        // https://github.com/typescript-eslint/typescript-eslint/tree/master/packages/eslint-plugin
+        'plugin:@typescript-eslint/recommended',
+        'plugin:@typescript-eslint/recommended-requiring-type-checking',
 
-    // 不用手动引入react
-    'react/react-in-jsx-scope': 'off',
-    'react/button-has-type': 'off',
-    'react/require-default-props': 'off',
-    'react/no-array-index-key': 'off',
-    'react/jsx-props-no-spreading': 'off',
+        // 使用prettier格式化代码
+        // https://github.com/prettier/eslint-config-prettier#readme
+        'prettier',
+        // 整合typescript-eslint与prettier
+        // https://github.com/prettier/eslint-plugin-prettier
+        'plugin:prettier/recommended',
+    ],
+    rules: {
+        /* ********************************** ES6+ ********************************** */
+        'no-console': 0,
+        'no-var-requires': 0,
+        'no-restricted-syntax': 0,
+        'no-continue': 0,
+        'no-await-in-loop': 0,
+        'no-return-await': 0,
+        'no-multi-assign': 0,
+        'no-param-reassign': [2, { props: false }],
+        'max-classes-per-file': 0,
+        'class-methods-use-this': 0,
+        'guard-for-in': 0,
+        'no-underscore-dangle': 0,
+        'no-plusplus': 0,
+        'no-lonely-if': 0,
+        'no-bitwise': ['error', { allow: ['~'] }],
 
-    'import/first': 'warn',
-    'import/newline-after-import': 'warn',
-    'import/no-duplicates': 'warn',
-    'import/no-extraneous-dependencies': 'off',
-    'import/prefer-default-export': 'off',
-    'import/order': [
-      'warn',
-      {
-        groups: [
-          'builtin', // Node.js内置模块
-          'external', // 第三方模块
-          'internal', // 应用程序内部的模块
-          'parent', // 父级目录中导入的模块
-          ['sibling', 'index'], // 具有相同或更高目录的兄弟模块
-          'object',
-          'type',
+        /* ********************************** Module Import ********************************** */
+
+        'import/prefer-default-export': 0,
+        'import/no-cycle': 0,
+        'import/no-dynamic-require': 0,
+        'import/no-absolute-path': 0,
+        'import/extensions': 0,
+
+        // 一部分文件在导入devDependencies的依赖时不报错
+        'import/no-extraneous-dependencies': 0,
+        // 'import/no-extraneous-dependencies': [
+        //     1,
+        //     {
+        //         devDependencies: [
+        //             '**/*.test.{ts,js}',
+        //             '**/*.spec.{ts,js}',
+        //             'build/**/*.{ts,js}',
+        //             'mock/**/*.{ts,js}',
+        //             '**.{ts,js}',
+        //         ],
+        //     },
+        // ],
+        // 模块导入顺序规则
+        'import/order': [
+            1,
+            {
+                pathGroups: [
+                    {
+                        pattern: '@/**',
+                        group: 'external',
+                        position: 'after',
+                    },
+                ],
+                'newlines-between': 'always-and-inside-groups',
+                warnOnUnassignedImports: true,
+            },
         ],
-        pathGroups: [
-          {
-            pattern: '@/**',
-            group: 'internal',
-          },
-          {
-            pattern: '#/**',
-            group: 'type',
-          },
-          {
-            pattern: '*.{scss,css,less,styl,stylus}',
-            group: 'parent',
-          },
-          {
-            pattern: '*.{js,jsx,ts,tsx}',
-            group: 'sibling',
-          },
+        // 自动删除未使用的导入
+        // https://github.com/sweepline/eslint-plugin-unused-imports
+        'no-unused-vars': 0,
+        '@typescript-eslint/no-unused-vars': 0,
+        'unused-imports/no-unused-imports': 1,
+        'unused-imports/no-unused-vars': [
+            'error',
+            {
+                vars: 'all',
+                args: 'none',
+                ignoreRestSiblings: true,
+            },
         ],
-        'newlines-between': 'always', // 在组之间插入空行
-        pathGroupsExcludedImportTypes: ['sibling', 'index'],
-        warnOnUnassignedImports: true,
-        alphabetize: { order: 'asc', caseInsensitive: true }, // 对于每个组，按字母表顺序排序。
-      },
-    ],
 
-    'unused-imports/no-unused-imports-ts': 'warn',
-    'unused-imports/no-unused-vars-ts': [
-      'warn',
-      { vars: 'all', varsIgnorePattern: '^_', args: 'after-used', argsIgnorePattern: '^_' },
-    ],
+        /* ********************************** Typescript ********************************** */
+        '@typescript-eslint/no-empty-interface': 0,
+        '@typescript-eslint/no-this-alias': 0,
+        '@typescript-eslint/no-var-requires': 0,
+        '@typescript-eslint/no-use-before-define': 0,
+        '@typescript-eslint/explicit-member-accessibility': 0,
+        '@typescript-eslint/no-non-null-assertion': 0,
+        '@typescript-eslint/no-unnecessary-type-assertion': 0,
+        '@typescript-eslint/require-await': 0,
+        '@typescript-eslint/no-for-in-array': 0,
+        '@typescript-eslint/interface-name-prefix': 0,
+        '@typescript-eslint/explicit-function-return-type': 0,
+        '@typescript-eslint/no-explicit-any': 0,
+        '@typescript-eslint/explicit-module-boundary-types': 0,
+        '@typescript-eslint/no-floating-promises': 0,
+        '@typescript-eslint/restrict-template-expressions': 0,
+        '@typescript-eslint/no-unsafe-assignment': 0,
+        '@typescript-eslint/no-unsafe-return': 0,
+        '@typescript-eslint/no-unused-expressions': 0,
+        '@typescript-eslint/no-misused-promises': 0,
+        '@typescript-eslint/no-unsafe-member-access': 0,
+        '@typescript-eslint/no-unsafe-call': 0,
+        '@typescript-eslint/no-unsafe-argument': 0,
 
-    '@typescript-eslint/no-unused-vars': [
-      'warn',
-      {
-        argsIgnorePattern: '^_',
-        varsIgnorePattern: '^_',
-      },
-    ],
-    '@typescript-eslint/no-unused-expressions': 'off',
-    '@typescript-eslint/ban-ts-ignore': 'off',
-    '@typescript-eslint/ban-ts-comment': 'off',
-    '@typescript-eslint/ban-types': 'off',
-    '@typescript-eslint/explicit-function-return-type': 'off',
-    '@typescript-eslint/no-explicit-any': 'off',
-    '@typescript-eslint/no-var-requires': 'off',
-    '@typescript-eslint/no-empty-function': 'off',
-    '@typescript-eslint/no-use-before-define': 'off',
-    '@typescript-eslint/no-non-null-assertion': 'off',
-    '@typescript-eslint/no-shadow': 'off',
-    '@typescript-eslint/explicit-module-boundary-types': 'off',
-  },
+        /* ********************************** React and Hooks ********************************** */
+        'react/jsx-uses-react': 1,
+        'react/jsx-uses-vars': 1,
+        'react/jsx-no-useless-fragment': 0,
+        'react/display-name': 0,
+        'react/button-has-type': 0,
+        'react/prop-types': 0,
+        'react/jsx-props-no-spreading': 0,
+        'react/destructuring-assignment': 0,
+        'react/static-property-placement': 0,
+        'react/react-in-jsx-scope': 0,
+        'react/require-default-props': 0,
+        'react/jsx-filename-extension': [1, { extensions: ['.jsx', '.tsx'] }],
+        'react/function-component-definition': [
+            2,
+            { namedComponents: 'arrow-function', unnamedComponents: 'arrow-function' },
+        ],
+        'react-hooks/exhaustive-deps': 0,
+
+        /* ********************************** jax-a11y ********************************** */
+        'jsx-a11y/anchor-is-valid': 0,
+        'jsx-a11y/no-static-element-interactions': 0,
+        'jsx-a11y/click-events-have-key-events': 0,
+        'jsx-a11y/label-has-associated-control': [
+            'error',
+            {
+                required: {
+                    some: ['nesting', 'id'],
+                },
+            },
+        ],
+    },
+
+    settings: {
+        extensions: ['.js', '.jsx', '.ts', '.tsx', '.d.ts', '.json'],
+    },
 };
