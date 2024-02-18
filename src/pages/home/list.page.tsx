@@ -2,6 +2,8 @@ import { Column } from '@antv/g2plot';
 import { Avatar, Button, Divider, Tabs, TabsProps } from 'antd';
 import { useEffect, useRef } from 'react';
 
+import Card from '@/components/card';
+
 const data = [
     {
         name: '您',
@@ -95,7 +97,7 @@ const data = [
     },
 ];
 
-export default () => {
+export default function Home() {
     const ref = useRef(null);
     // 图表。保证首次加载，且只加载一次
     useEffect(() => {
@@ -229,13 +231,17 @@ export default () => {
             </section>
             <section className="mt-3 flex ">
                 <div className="bg-white dark:bg-slate-900 mr-3 w-1/2">
-                    <div className="m-5 font-bold text-[#487ec1]">近八天系统访问记录</div>
-                    <div className="ml-5" ref={ref} />
+                    <Card>
+                        <div className="m-5 font-bold text-[#487ec1]">近八天系统访问记录</div>
+                        <div className="ml-5" ref={ref} />
+                    </Card>
                 </div>
                 <div className="bg-white dark:bg-slate-900 w-1/2 pl-3">
-                    <Tabs defaultActiveKey="1" items={items} />
+                    <Card>
+                        <Tabs defaultActiveKey="1" items={items} />
+                    </Card>
                 </div>
             </section>
         </div>
     );
-};
+}
