@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import { useUserToken } from '@/store/userStore';
+import { useUserStore } from '@/store/userStore';
 import { globalError } from '@/utils/antd-extract';
 
 // 刷新token的API调用
@@ -26,10 +26,10 @@ export const service = axios.create({
 });
 // 拦截请求处理
 service.interceptors.request.use(async (params) => {
-    // 添加token
-    const userToken = useUserToken();
-    if (userToken.accessToken) {
-        params.headers.set('Authorization', `Bearer ${userToken.accessToken}`);
+    // 添加token（使用 useUserToken() 获取不了，使用 useUserStore.getState() 获取）
+    const { accessToken } = useUserStore.getState().userToken;
+    if (accessToken) {
+        params.headers.set('Authorization', `Bearer ${accessToken}`);
     }
     return params;
 });

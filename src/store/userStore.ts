@@ -24,7 +24,7 @@ type UserStore = {
     };
 };
 
-const useUserStore = create<UserStore>((set) => ({
+export const useUserStore = create<UserStore>((set) => ({
     userInfo: getItem<UserInfo>(StorageEnum.User) || {},
     userToken: getItem<UserToken>(StorageEnum.Token) || {},
     actions: {
