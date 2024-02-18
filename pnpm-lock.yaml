@@ -68,6 +68,9 @@ dependencies:
   dayjs:
     specifier: ^1.11.10
     version: 1.11.10
+  deepmerge:
+    specifier: ^4.3.1
+    version: 4.3.1
   framer-motion:
     specifier: ^10.16.4
     version: 10.16.4(react-dom@18.2.0)(react@18.2.0)
@@ -80,6 +83,9 @@ dependencies:
   i18next-browser-languagedetector:
     specifier: ^7.1.0
     version: 7.1.0
+  lodash:
+    specifier: ^4.17.21
+    version: 4.17.21
   nprogress:
     specifier: ^0.2.0
     version: 0.2.0
@@ -89,6 +95,9 @@ dependencies:
   ramda:
     specifier: ^0.29.1
     version: 0.29.1
+  rc-util:
+    specifier: ^5.37.0
+    version: 5.38.0(react-dom@18.2.0)(react@18.2.0)
   react:
     specifier: ^18.2.0
     version: 18.2.0
@@ -172,6 +181,9 @@ devDependencies:
   '@types/color':
     specifier: ^3.0.4
     version: 3.0.4
+  '@types/lodash':
+    specifier: ^4.14.195
+    version: 4.14.199
   '@types/nprogress':
     specifier: ^0.2.1
     version: 0.2.1
@@ -2929,7 +2941,6 @@ packages:
 
   /@types/lodash@4.14.199:
     resolution: {integrity: sha512-Vrjz5N5Ia4SEzWWgIVwnHNEnb1UE1XMkvY5DGXrAeOGE9imk0hgTHh5GyDjLDJi9OTCn9oo9dXH1uToK1VRfrg==}
-    dev: false
 
   /@types/mdast@3.0.13:
     resolution: {integrity: sha512-HjiGiWedR0DVFkeNljpa6Lv4/IZU1+30VY5d747K7lBudFc3R0Ibr6yJ9lN3BE28VnZyDfLF/VB1Ql1ZIbKrmg==}
@@ -4597,6 +4608,11 @@ packages:
   /deep-is@0.1.4:
     resolution: {integrity: sha512-oIPzksmTg4/MriiaYGO+okXDT7ztn/w3Eptv/+gSIdMdKsJo0u4CfYNFJPy+4SKMuCqGw2wxnA+URMg3t8a/bQ==}
     dev: true
+
+  /deepmerge@4.3.1:
+    resolution: {integrity: sha512-3sUqbMEc77XqpdNO7FRyRog+eW3ph+GYCbj+rK+uYyRMuwsVy0rMiVtPn+QJlKFvWP/1PYpapqYn0Me2knFn+A==}
+    engines: {node: '>=0.10.0'}
+    dev: false
 
   /defaults@1.0.4:
     resolution: {integrity: sha512-eFuaLoy/Rxalv2kr+lqMlUnrDWV+3j4pljOIJgLIhI058IQfWJ7vXhyEIHu+HtC738klGALYxOKDO0bQP3tg8A==}

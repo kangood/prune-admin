@@ -5,6 +5,11 @@ import { useState } from 'react';
 
 import { useDeleteMenu, useListMenuTree } from '@/services/menu';
 
+import { MenuEditForm } from './edit.page';
+import { ResourceListPage } from './resource-list.page';
+
+import { PermissionType } from '#/enum';
+
 export interface InputType {
     id?: number;
     // 生成树用
@@ -49,10 +54,10 @@ export interface OutputType {
     updatedBy?: number;
 }
 
-export default () => {
+export default function Menus() {
     const [form] = Form.useForm();
     const defaultClickOne: InputType = {
-        resourceType: '20',
+        resourceType: PermissionType.MENU,
         state: true,
         isGeneral: false,
         isDef: false,
@@ -142,12 +147,20 @@ export default () => {
                     </Card>
                 </Col>
                 <Col span={11}>
-                    <Card title={clickOne.id ? '修改' : '新增'} />
+                    <Card title={clickOne.id ? '修改' : '新增'}>
+                        <MenuEditForm clickOne={clickOne} />
+                    </Card>
                 </Col>
                 <Col span={7}>
-                    <Card />
+                    <Card>
+                        <ResourceListPage
+                            clickMenuId={clickOne.id ?? 0}
+                            clickMenuLabel={clickOne.label}
+                            clickMenuResourceType={clickOne.resourceType}
+                        />
+                    </Card>
                 </Col>
             </Row>
         </div>
     );
-};
+}
