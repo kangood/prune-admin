@@ -74,6 +74,8 @@ module.exports = {
         'react/no-array-index-key': 'off',
         'react/jsx-props-no-spreading': 'off',
         'react-refresh/only-export-components': 'warn',
+        'react/prop-types': 0,
+        'react-hooks/exhaustive-deps': 0,
         'react/function-component-definition': [
             2,
             {
