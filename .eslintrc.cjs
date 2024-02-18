@@ -42,6 +42,7 @@ module.exports = {
         'prettier',
         'react',
         'react-hooks',
+        'react-refresh',
         'jsx-a11y',
         'import',
         'unused-imports',
@@ -72,6 +73,7 @@ module.exports = {
         'react/require-default-props': 'off',
         'react/no-array-index-key': 'off',
         'react/jsx-props-no-spreading': 'off',
+        'react-refresh/only-export-components': 'warn',
         'react/function-component-definition': [
             2,
             {
