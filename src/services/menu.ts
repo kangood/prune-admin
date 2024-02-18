@@ -1,9 +1,9 @@
 import { useMutation, useQuery } from '@tanstack/react-query';
 
-import { InputType, OutputType } from '@/pages/setting/menus/list.page';
-import { globalSuccess } from '@/utils/antd-extract';
 import { service } from '@/http/axios/service';
 import { queryClient } from '@/http/tanstack/react-query';
+import { InputType, OutputType } from '@/pages/setting/menus/list.page';
+import { globalSuccess } from '@/utils/antd-extract';
 
 /**
  * 树结构查询

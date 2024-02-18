@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-import { globalError } from '@/utils/antd-extract';
 import { useUserToken } from '@/store/userStore';
+import { globalError } from '@/utils/antd-extract';
 
 // 刷新token的API调用
 // const refreshTokenApi = async () => {

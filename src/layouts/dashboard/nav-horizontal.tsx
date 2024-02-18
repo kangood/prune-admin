@@ -10,64 +10,64 @@ import { useThemeToken } from '@/theme/hooks';
 import { NAV_HORIZONTAL_HEIGHT } from './config';
 
 export default function NavHorizontal() {
-  const navigate = useNavigate();
-  const matches = useMatches();
-  const { pathname } = useLocation();
+    const navigate = useNavigate();
+    const matches = useMatches();
+    const { pathname } = useLocation();
 
-  const { colorBgElevated } = useThemeToken();
+    const { colorBgElevated } = useThemeToken();
 
-  const routeToMenuFn = useRouteToMenuFn();
-  const permissionRoutes = usePermissionRoutes();
+    const routeToMenuFn = useRouteToMenuFn();
+    const permissionRoutes = usePermissionRoutes();
 
-  /**
-   * state
-   */
-  const [openKeys, setOpenKeys] = useState<string[]>([]);
-  const [selectedKeys, setSelectedKeys] = useState<string[]>(['']);
-  const [menuList, setMenuList] = useState<ItemType[]>([]);
+    /**
+     * state
+     */
+    const [openKeys, setOpenKeys] = useState<string[]>([]);
+    const [selectedKeys, setSelectedKeys] = useState<string[]>(['']);
+    const [menuList, setMenuList] = useState<ItemType[]>([]);
 
-  useEffect(() => {
-    setSelectedKeys([pathname]);
-  }, [pathname, matches]);
+    useEffect(() => {
+        setSelectedKeys([pathname]);
+    }, [pathname, matches]);
 
-  useEffect(() => {
-    const menuRoutes = menuFilter(permissionRoutes);
-    const menus = routeToMenuFn(menuRoutes);
-    setMenuList(menus);
-  }, [permissionRoutes, routeToMenuFn]);
+    useEffect(() => {
+        const menuRoutes = menuFilter(permissionRoutes);
+        const menus = routeToMenuFn(menuRoutes);
+        setMenuList(menus);
+    }, [permissionRoutes, routeToMenuFn]);
 
-  /**
-   * events
-   */
-  const onOpenChange: MenuProps['onOpenChange'] = (keys) => {
-    const latestOpenKey = keys.find((key) => openKeys.indexOf(key) === -1);
-    if (latestOpenKey) {
-      setOpenKeys(keys);
-    } else {
-      setOpenKeys([]);
-    }
-  };
-  const onClick: MenuProps['onClick'] = ({ key }) => {
-    navigate(key);
-  };
+    /**
+     * events
+     */
+    const onOpenChange: MenuProps['onOpenChange'] = (keys) => {
+        const latestOpenKey = keys.find((key) => openKeys.indexOf(key) === -1);
+        if (latestOpenKey) {
+            setOpenKeys(keys);
+        } else {
+            setOpenKeys([]);
+        }
+    };
+    const onClick: MenuProps['onClick'] = ({ key }) => {
+        navigate(key);
+    };
 
-  const menuStyle: CSSProperties = {
-    background: colorBgElevated,
-  };
-  return (
-    <div className="w-screen" style={{ height: NAV_HORIZONTAL_HEIGHT }}>
-      <Menu
-        mode="horizontal"
-        items={menuList}
-        className="!z-10 !border-none"
-        defaultOpenKeys={openKeys}
-        defaultSelectedKeys={selectedKeys}
-        selectedKeys={selectedKeys}
-        openKeys={openKeys}
-        onOpenChange={onOpenChange}
-        onClick={onClick}
-        style={menuStyle}
-      />
-    </div>
-  );
+    const menuStyle: CSSProperties = {
+        background: colorBgElevated,
+    };
+    return (
+        <div className="w-screen" style={{ height: NAV_HORIZONTAL_HEIGHT }}>
+            <Menu
+                mode="horizontal"
+                items={menuList}
+                className="!z-10 !border-none"
+                defaultOpenKeys={openKeys}
+                defaultSelectedKeys={selectedKeys}
+                selectedKeys={selectedKeys}
+                openKeys={openKeys}
+                onOpenChange={onOpenChange}
+                onClick={onClick}
+                style={menuStyle}
+            />
+        </div>
+    );
 }

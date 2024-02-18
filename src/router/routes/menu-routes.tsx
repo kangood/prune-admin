@@ -15,11 +15,11 @@ const { VITE_APP_HOMEPAGE: HOMEPAGE } = import.meta.env;
  * dynamic routes
  */
 export const menuRoutes: AppRouteObject = {
-  path: '/',
-  element: (
-    <AuthGuard>
-      <DashboardLayout />
-    </AuthGuard>
-  ),
-  children: [{ index: true, element: <Navigate to={HOMEPAGE} replace /> }, ...menuModuleRoutes],
+    path: '/',
+    element: (
+        <AuthGuard>
+            <DashboardLayout />
+        </AuthGuard>
+    ),
+    children: [{ index: true, element: <Navigate to={HOMEPAGE} replace /> }, ...menuModuleRoutes],
 };

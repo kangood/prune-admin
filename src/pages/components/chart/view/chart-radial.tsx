@@ -4,34 +4,34 @@ import { fNumber } from '@/utils/format-number';
 
 const series = [44, 55];
 export default function ChartRadial() {
-  const chartOptions = useChart({
-    chart: {
-      sparkline: {
-        enabled: true,
-      },
-    },
-    labels: ['Apples', 'Oranges'],
-    legend: {
-      floating: true,
-      position: 'bottom',
-      horizontalAlign: 'center',
-    },
-    plotOptions: {
-      radialBar: {
-        hollow: {
-          size: '68%',
+    const chartOptions = useChart({
+        chart: {
+            sparkline: {
+                enabled: true,
+            },
         },
-        dataLabels: {
-          value: {
-            offsetY: 16,
-          },
-          total: {
-            formatter: () => fNumber(2324),
-          },
+        labels: ['Apples', 'Oranges'],
+        legend: {
+            floating: true,
+            position: 'bottom',
+            horizontalAlign: 'center',
         },
-      },
-    },
-  });
+        plotOptions: {
+            radialBar: {
+                hollow: {
+                    size: '68%',
+                },
+                dataLabels: {
+                    value: {
+                        offsetY: 16,
+                    },
+                    total: {
+                        formatter: () => fNumber(2324),
+                    },
+                },
+            },
+        },
+    });
 
-  return <Chart type="radialBar" series={series} options={chartOptions} height={320} />;
+    return <Chart type="radialBar" series={series} options={chartOptions} height={320} />;
 }

@@ -16,84 +16,84 @@ import ChartRadar from './view/chart-radar';
 import ChartRadial from './view/chart-radial';
 
 export default function ChartPage() {
-  const { colorPrimary } = useThemeToken();
-  return (
-    <>
-      <Typography.Link
-        href="https://apexcharts.com"
-        style={{ color: colorPrimary }}
-        className="mb-4 block"
-      >
-        https://apexcharts.com
-      </Typography.Link>
+    const { colorPrimary } = useThemeToken();
+    return (
+        <>
+            <Typography.Link
+                href="https://apexcharts.com"
+                style={{ color: colorPrimary }}
+                className="mb-4 block"
+            >
+                https://apexcharts.com
+            </Typography.Link>
 
-      <Row gutter={[16, 16]} justify="center">
-        <Col span={23} lg={12}>
-          <Card title="Area">
-            <ChartArea />
-          </Card>
-        </Col>
-        <Col span={23} lg={12}>
-          <Card title="Line">
-            <ChartLine />
-          </Card>
-        </Col>
+            <Row gutter={[16, 16]} justify="center">
+                <Col span={23} lg={12}>
+                    <Card title="Area">
+                        <ChartArea />
+                    </Card>
+                </Col>
+                <Col span={23} lg={12}>
+                    <Card title="Line">
+                        <ChartLine />
+                    </Card>
+                </Col>
 
-        <Col span={23} lg={12}>
-          <Card title="Column Single">
-            <ChartColumnSingle />
-          </Card>
-        </Col>
-        <Col span={23} lg={12}>
-          <Card title="Column Multiple">
-            <ChartColumnMultiple />
-          </Card>
-        </Col>
+                <Col span={23} lg={12}>
+                    <Card title="Column Single">
+                        <ChartColumnSingle />
+                    </Card>
+                </Col>
+                <Col span={23} lg={12}>
+                    <Card title="Column Multiple">
+                        <ChartColumnMultiple />
+                    </Card>
+                </Col>
 
-        <Col span={23} lg={12}>
-          <Card title="Column Stacked">
-            <ChartColumnStacked />
-          </Card>
-        </Col>
-        <Col span={23} lg={12}>
-          <Card title="Column Negative">
-            <ChartColumnNegative />
-          </Card>
-        </Col>
+                <Col span={23} lg={12}>
+                    <Card title="Column Stacked">
+                        <ChartColumnStacked />
+                    </Card>
+                </Col>
+                <Col span={23} lg={12}>
+                    <Card title="Column Negative">
+                        <ChartColumnNegative />
+                    </Card>
+                </Col>
 
-        <Col span={23} lg={12}>
-          <Card title="Bar">
-            <ChartBar />
-          </Card>
-        </Col>
-        <Col span={23} lg={12}>
-          <Card title="Column Mixed">
-            <ChartMixed />
-          </Card>
-        </Col>
+                <Col span={23} lg={12}>
+                    <Card title="Bar">
+                        <ChartBar />
+                    </Card>
+                </Col>
+                <Col span={23} lg={12}>
+                    <Card title="Column Mixed">
+                        <ChartMixed />
+                    </Card>
+                </Col>
 
-        <Col span={24} lg={12}>
-          <Card title="Pie">
-            <ChartPie />
-          </Card>
-        </Col>
-        <Col span={23} lg={12}>
-          <Card title="Donut">
-            <ChartDonut />
-          </Card>
-        </Col>
+                <Col span={24} lg={12}>
+                    <Card title="Pie">
+                        <ChartPie />
+                    </Card>
+                </Col>
+                <Col span={23} lg={12}>
+                    <Card title="Donut">
+                        <ChartDonut />
+                    </Card>
+                </Col>
 
-        <Col span={23} lg={12}>
-          <Card title="Radial Bar">
-            <ChartRadial />
-          </Card>
-        </Col>
-        <Col span={23} lg={12}>
-          <Card title="Radar">
-            <ChartRadar />
-          </Card>
-        </Col>
-      </Row>
-    </>
-  );
+                <Col span={23} lg={12}>
+                    <Card title="Radial Bar">
+                        <ChartRadial />
+                    </Card>
+                </Col>
+                <Col span={23} lg={12}>
+                    <Card title="Radar">
+                        <ChartRadar />
+                    </Card>
+                </Col>
+            </Row>
+        </>
+    );
 }

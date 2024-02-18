@@ -17,18 +17,18 @@ const Page500 = lazy(() => import('@/pages/sys/error/Page500'));
  * 403, 404, 500
  */
 export const ErrorRoutes: AppRouteObject = {
-  element: (
-    <AuthGuard>
-      <SimpleLayout>
-        <Suspense fallback={<CircleLoading />}>
-          <Outlet />
-        </Suspense>
-      </SimpleLayout>
-    </AuthGuard>
-  ),
-  children: [
-    { path: '403', element: <Page403 /> },
-    { path: '404', element: <Page404 /> },
-    { path: '500', element: <Page500 /> },
-  ],
+    element: (
+        <AuthGuard>
+            <SimpleLayout>
+                <Suspense fallback={<CircleLoading />}>
+                    <Outlet />
+                </Suspense>
+            </SimpleLayout>
+        </AuthGuard>
+    ),
+    children: [
+        { path: '403', element: <Page403 /> },
+        { path: '404', element: <Page404 /> },
+        { path: '500', element: <Page500 /> },
+    ],
 };

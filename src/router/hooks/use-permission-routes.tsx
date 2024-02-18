@@ -17,23 +17,23 @@ const pages = import.meta.glob('/src/pages/**/*.tsx');
 
 // 构建绝对路径的函数
 function resolveComponent(path: string) {
-  return pages[`/src/pages${path}`];
+    return pages[`/src/pages${path}`];
 }
 
 /**
  * return routes about permission
  */
 export function usePermissionRoutes() {
-  const permissions = useUserPermission();
+    const permissions = useUserPermission();
 
-  return useMemo(() => {
-    const flattenedPermissions = flattenTrees(permissions!);
-    const permissionRoutes = transformPermissionToMenuRoutes(
-      permissions || [],
-      flattenedPermissions,
-    );
-    return [...permissionRoutes];
-  }, [permissions]);
+    return useMemo(() => {
+        const flattenedPermissions = flattenTrees(permissions!);
+        const permissionRoutes = transformPermissionToMenuRoutes(
+            permissions || [],
+            flattenedPermissions,
+        );
+        return [...permissionRoutes];
+    }, [permissions]);
 }
 
 /**
@@ -42,72 +42,75 @@ export function usePermissionRoutes() {
  * @param parent
  */
 function transformPermissionToMenuRoutes(
-  permissions: Permission[],
-  flattenedPermissions: Permission[],
+    permissions: Permission[],
+    flattenedPermissions: Permission[],
 ) {
-  return permissions.map((permission) => {
-    const {
-      route,
-      type,
-      label,
-      icon,
-      order,
-      hide,
-      status,
-      frameSrc,
-      newFeature,
-      component,
-      parentId,
-      children = [],
-    } = permission;
+    return permissions.map((permission) => {
+        const {
+            route,
+            type,
+            label,
+            icon,
+            order,
+            hide,
+            status,
+            frameSrc,
+            newFeature,
+            component,
+            parentId,
+            children = [],
+        } = permission;
 
-    const appRoute: AppRouteObject = {
-      path: route,
-      meta: {
-        label,
-        key: getCompleteRoute(permission, flattenedPermissions),
-        hideMenu: !!hide,
-        disabled: status === BasicStatus.DISABLE,
-      },
-    };
+        const appRoute: AppRouteObject = {
+            path: route,
+            meta: {
+                label,
+                key: getCompleteRoute(permission, flattenedPermissions),
+                hideMenu: !!hide,
+                disabled: status === BasicStatus.DISABLE,
+            },
+        };
 
-    if (order) appRoute.order = order;
-    if (icon) appRoute.meta!.icon = icon;
-    if (frameSrc) appRoute.meta!.frameSrc = frameSrc;
-    if (newFeature)
-      appRoute.meta!.suffix = (
-        <ProTag color="cyan" icon={<Iconify icon="solar:bell-bing-bold-duotone" size={14} />}>
-          NEW
-        </ProTag>
-      );
+        if (order) appRoute.order = order;
+        if (icon) appRoute.meta!.icon = icon;
+        if (frameSrc) appRoute.meta!.frameSrc = frameSrc;
+        if (newFeature)
+            appRoute.meta!.suffix = (
+                <ProTag
+                    color="cyan"
+                    icon={<Iconify icon="solar:bell-bing-bold-duotone" size={14} />}
+                >
+                    NEW
+                </ProTag>
+            );
 
-    if (type === PermissionType.CATALOGUE) {
-      appRoute.meta!.hideTab = true;
-      if (!parentId) {
-        appRoute.element = (
-          <Suspense fallback={<CircleLoading />}>
-            <Outlet />
-          </Suspense>
-        );
-      }
-      appRoute.children = transformPermissionToMenuRoutes(children, flattenedPermissions);
-      if (!isEmpty(children)) {
-        appRoute.children.unshift({
-          index: true,
-          element: <Navigate to={children[0].route} replace />,
-        });
-      }
-    } else if (type === PermissionType.MENU) {
-      const Element = lazy(resolveComponent(component!) as any);
-      if (frameSrc) {
-        appRoute.element = <Element src={frameSrc} />;
-      } else {
-        appRoute.element = <Element />;
-      }
-    }
+        if (type === PermissionType.CATALOGUE) {
+            appRoute.meta!.hideTab = true;
+            if (!parentId) {
+                appRoute.element = (
+                    <Suspense fallback={<CircleLoading />}>
+                        <Outlet />
+                    </Suspense>
+                );
+            }
+            appRoute.children = transformPermissionToMenuRoutes(children, flattenedPermissions);
+            if (!isEmpty(children)) {
+                appRoute.children.unshift({
+                    index: true,
+                    element: <Navigate to={children[0].route} replace />,
+                });
+            }
+        } else if (type === PermissionType.MENU) {
+            const Element = lazy(resolveComponent(component!) as any);
+            if (frameSrc) {
+                appRoute.element = <Element src={frameSrc} />;
+            } else {
+                appRoute.element = <Element />;
+            }
+        }
 
-    return appRoute;
-  });
+        return appRoute;
+    });
 }
 
 /**
@@ -118,12 +121,12 @@ function transformPermissionToMenuRoutes(
  * @returns {string} - The complete route after splicing
  */
 function getCompleteRoute(permission: Permission, flattenedPermissions: Permission[], route = '') {
-  const currentRoute = route ? `/${permission.route}${route}` : `/${permission.route}`;
+    const currentRoute = route ? `/${permission.route}${route}` : `/${permission.route}`;
 
-  if (permission.parentId) {
-    const parentPermission = flattenedPermissions.find((p) => p.id === permission.parentId)!;
-    return getCompleteRoute(parentPermission, flattenedPermissions, currentRoute);
-  }
+    if (permission.parentId) {
+        const parentPermission = flattenedPermissions.find((p) => p.id === permission.parentId)!;
+        return getCompleteRoute(parentPermission, flattenedPermissions, currentRoute);
+    }
 
-  return currentRoute;
+    return currentRoute;
 }

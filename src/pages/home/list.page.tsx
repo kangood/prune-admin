@@ -1,5 +1,5 @@
-import { Avatar, Button, Divider, Tabs, TabsProps } from 'antd';
 import { Column } from '@antv/g2plot';
+import { Avatar, Button, Divider, Tabs, TabsProps } from 'antd';
 import { useEffect, useRef } from 'react';
 
 const data = [
@@ -123,7 +123,7 @@ export default () => {
         return () => {
             stackedColumnPlot.destroy();
         };
-    }, [ref.current]);
+    }, []);
     // 标签切换 items
     const items: TabsProps['items'] = [
         {
