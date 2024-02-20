@@ -1,4 +1,4 @@
-import { Button, Col, Input, Row, Table, DatePicker, message, Form, Pagination } from 'antd';
+import { Button, Col, Input, Row, Table, DatePicker, message, Form, Pagination, Card } from 'antd';
 import locale from 'antd/es/date-picker/locale/zh_CN';
 import { useState } from 'react';
 
@@ -86,73 +86,75 @@ export default function Parameters() {
     };
     return (
         <div>
-            {/* 搜索和操作栏 */}
-            <Form form={form} onFinish={onFinishHandler}>
-                <Row gutter={24}>
-                    <Col span={4}>
-                        <Form.Item name="key">
-                            <Input placeholder="参数键" allowClear />
-                        </Form.Item>
-                    </Col>
-                    <Col span={4}>
-                        <Form.Item name="name">
-                            <Input placeholder="参数名称" allowClear />
-                        </Form.Item>
-                    </Col>
-                    <Col span={4}>
-                        <Form.Item name="value">
-                            <Input placeholder="参数值" allowClear />
-                        </Form.Item>
-                    </Col>
-                    <Col span={4}>
-                        <Form.Item name="rangePicker">
-                            <RangePicker locale={locale} onChange={dateChangeHandler} />
-                        </Form.Item>
-                    </Col>
-                    <Col span={2}>
-                        <Form.Item>
-                            <Button type="primary" htmlType="submit">
-                                搜索
+            <Card>
+                {/* 搜索和操作栏 */}
+                <Form form={form} onFinish={onFinishHandler}>
+                    <Row gutter={24}>
+                        <Col span={4}>
+                            <Form.Item name="key">
+                                <Input placeholder="参数键" allowClear />
+                            </Form.Item>
+                        </Col>
+                        <Col span={4}>
+                            <Form.Item name="name">
+                                <Input placeholder="参数名称" allowClear />
+                            </Form.Item>
+                        </Col>
+                        <Col span={4}>
+                            <Form.Item name="value">
+                                <Input placeholder="参数值" allowClear />
+                            </Form.Item>
+                        </Col>
+                        <Col span={4}>
+                            <Form.Item name="rangePicker">
+                                <RangePicker locale={locale} onChange={dateChangeHandler} />
+                            </Form.Item>
+                        </Col>
+                        <Col span={2}>
+                            <Form.Item>
+                                <Button type="primary" htmlType="submit">
+                                    搜索
+                                </Button>
+                            </Form.Item>
+                        </Col>
+                        <Col span={2}>
+                            <Button type="primary" onClick={resetHandler}>
+                                重置
                             </Button>
-                        </Form.Item>
-                    </Col>
-                    <Col span={2}>
-                        <Button type="primary" onClick={resetHandler}>
-                            重置
-                        </Button>
-                    </Col>
-                    <Col span={2}>
-                        <Button type="primary" onClick={() => onOpenFormHandler()}>
-                            添加
-                        </Button>
-                    </Col>
-                    <Col span={2}>
-                        <Button type="primary" onClick={batchDelHandler}>
-                            删除
-                        </Button>
-                    </Col>
-                </Row>
-            </Form>
-            {/* 表格数据 */}
-            <Table
-                columns={columns({ onOpenFormHandler, onDelHandler })}
-                dataSource={data?.items}
-                pagination={false}
-                rowSelection={{
-                    ...rowSelection,
-                }}
-            />
-            <Pagination
-                showSizeChanger
-                onChange={onPageChange}
-                total={data?.meta.totalItems}
-                current={data?.meta.currentPage}
-                showTotal={(total: number) => `共 ${total} 条`}
-            />
-            {/* 弹出层表单 */}
-            {showInfo && (
-                <ParameterEditForm clickOne={clickOne} onClose={() => setShowInfo(false)} />
-            )}
+                        </Col>
+                        <Col span={2}>
+                            <Button type="primary" onClick={() => onOpenFormHandler()}>
+                                添加
+                            </Button>
+                        </Col>
+                        <Col span={2}>
+                            <Button type="primary" onClick={batchDelHandler}>
+                                删除
+                            </Button>
+                        </Col>
+                    </Row>
+                </Form>
+                {/* 表格数据 */}
+                <Table
+                    columns={columns({ onOpenFormHandler, onDelHandler })}
+                    dataSource={data?.items}
+                    pagination={false}
+                    rowSelection={{
+                        ...rowSelection,
+                    }}
+                />
+                <Pagination
+                    showSizeChanger
+                    onChange={onPageChange}
+                    total={data?.meta.totalItems}
+                    current={data?.meta.currentPage}
+                    showTotal={(total: number) => `共 ${total} 条`}
+                />
+                {/* 弹出层表单 */}
+                {showInfo && (
+                    <ParameterEditForm clickOne={clickOne} onClose={() => setShowInfo(false)} />
+                )}
+            </Card>
         </div>
     );
 }
