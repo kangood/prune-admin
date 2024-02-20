@@ -145,6 +145,10 @@
                 "dictionary": "字典管理",
                 "parameter": "参数管理"
             },
+            "authority": {
+                "index": "权限管理",
+                "role": "角色管理"
+            },
             "org": {
                 "index": "组织机构",
                 "org": "机构管理",

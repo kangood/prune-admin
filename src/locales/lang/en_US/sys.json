@@ -146,6 +146,10 @@
                 "dictionary": "Dictionary",
                 "parameter": "Parameter"
             },
+            "authority": {
+                "index": "Authority",
+                "role": "Role"
+            },
             "org": {
                 "index": "Org",
                 "org": "Institution",
