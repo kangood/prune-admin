@@ -146,15 +146,20 @@
                 "dictionary": "Dictionary",
                 "parameter": "Parameter"
             },
-            "authority": {
-                "index": "Authority",
-                "role": "Role"
-            },
+            
             "org": {
                 "index": "Org",
                 "org": "Institution",
                 "station": "Station",
                 "user": "User"
+            },
+            "authority": {
+                "index": "Authority",
+                "role": "Role"
+            },
+            "base": {
+                "index": "Base",
+                "area": "Area"
             }
         }
     }

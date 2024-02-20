@@ -145,15 +145,19 @@
                 "dictionary": "字典管理",
                 "parameter": "参数管理"
             },
-            "authority": {
-                "index": "权限管理",
-                "role": "角色管理"
-            },
             "org": {
                 "index": "组织机构",
                 "org": "机构管理",
                 "station": "岗位管理",
                 "user": "用户管理"
+            },
+            "authority": {
+                "index": "权限管理",
+                "role": "角色管理"
+            },
+            "base": {
+                "index": "基础配置",
+                "area": "行政区划"
             }
         }
     }
