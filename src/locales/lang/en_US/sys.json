@@ -160,6 +160,10 @@
             "base": {
                 "index": "Base",
                 "area": "Area"
+            },
+            "resource": {
+                "index": "Resource",
+                "ossc": "Oss"
             }
         }
     }
