@@ -139,6 +139,9 @@
             }
         },
         "menu2": {
+            "home": {
+                "index": "个人主页"
+            },
             "setting": {
                 "index": "系统设置",
                 "menu": "菜单管理",

@@ -140,6 +140,9 @@
             }
         },
         "menu2": {
+            "home": {
+                "index": "Home"
+            },
             "setting": {
                 "index": "Setting",
                 "menu": "Menu",
