@@ -1,5 +1,5 @@
 import { DeleteOutlined, EditOutlined, MenuOutlined, UserSwitchOutlined } from '@ant-design/icons';
-import { Button, Space, Tag } from 'antd';
+import { Button, Space, Tag, Tooltip } from 'antd';
 import { ColumnsType } from 'antd/es/table';
 
 import { dayjsFormat } from '@/utils/helpers';
@@ -89,30 +89,38 @@ export const columns: ({
         key: 'action',
         render: (_, record) => (
             <Space size="middle">
-                <Button
-                    key="edit"
-                    type="text"
-                    icon={<EditOutlined />}
-                    onClick={() => onOpenFormHandler(record)}
-                />
-                <Button
-                    key="del"
-                    type="text"
-                    icon={<DeleteOutlined />}
-                    onClick={() => onDelHandler([record.id!])}
-                />
-                <Button
-                    key="roleAction"
-                    type="text"
-                    icon={<UserSwitchOutlined />}
-                    onClick={() => onOpenRoleAllotHandler(record.id!)}
-                />
-                <Button
-                    key="menuAction"
-                    type="text"
-                    icon={<MenuOutlined />}
-                    onClick={() => onOpenResourceAllotHandler(record.id!)}
-                />
+                <Tooltip title="编辑">
+                    <Button
+                        key="edit"
+                        type="text"
+                        icon={<EditOutlined />}
+                        onClick={() => onOpenFormHandler(record)}
+                    />
+                </Tooltip>
+                <Tooltip title="删除">
+                    <Button
+                        key="del"
+                        type="text"
+                        icon={<DeleteOutlined />}
+                        onClick={() => onDelHandler([record.id!])}
+                    />
+                </Tooltip>
+                <Tooltip title="分配角色">
+                    <Button
+                        key="roleAction"
+                        type="text"
+                        icon={<UserSwitchOutlined />}
+                        onClick={() => onOpenRoleAllotHandler(record.id!)}
+                    />
+                </Tooltip>
+                <Tooltip title="分配菜单">
+                    <Button
+                        key="menuAction"
+                        type="text"
+                        icon={<MenuOutlined />}
+                        onClick={() => onOpenResourceAllotHandler(record.id!)}
+                    />
+                </Tooltip>
             </Space>
         ),
     },

@@ -1,5 +1,5 @@
 import { DeleteOutlined, EditOutlined } from '@ant-design/icons';
-import { Button, Space, Tag } from 'antd';
+import { Button, Space, Tag, Tooltip } from 'antd';
 import { ColumnsType } from 'antd/es/table';
 
 import { dayjsFormat } from '@/utils/helpers';
@@ -71,18 +71,23 @@ export const columns: ({ onOpenFormHandler, onDelHandler }: IProps) => ColumnsTy
         width: 150,
         render: (_, record) => (
             <Space size="middle">
-                <Button
-                    key="edit"
-                    type="text"
-                    icon={<EditOutlined />}
-                    onClick={() => onOpenFormHandler(record)}
-                />
-                <Button
-                    key="del"
-                    type="text"
-                    icon={<DeleteOutlined />}
-                    onClick={() => onDelHandler([record.id!])}
-                />
+                <Tooltip title="编辑">
+                    <Button
+                        key="edit"
+                        className="hover:bg-hover"
+                        type="text"
+                        icon={<EditOutlined />}
+                        onClick={() => onOpenFormHandler(record)}
+                    />
+                </Tooltip>
+                <Tooltip title="删除">
+                    <Button
+                        key="del"
+                        type="text"
+                        icon={<DeleteOutlined />}
+                        onClick={() => onDelHandler([record.id!])}
+                    />
+                </Tooltip>
             </Space>
         ),
     },

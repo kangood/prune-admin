@@ -77,18 +77,22 @@ export const listTypeColumns: ({
         width: 90,
         render: (_, record) => (
             <Space size={0}>
-                <Button
-                    key="edit"
-                    type="text"
-                    icon={<EditOutlined />}
-                    onClick={() => onOpenFormHandlerLeft(record)}
-                />
-                <Button
-                    key="del"
-                    type="text"
-                    icon={<DeleteOutlined />}
-                    onClick={() => onDelHandlerLeft([record.id!])}
-                />
+                <Tooltip title="编辑">
+                    <Button
+                        key="edit"
+                        type="text"
+                        icon={<EditOutlined />}
+                        onClick={() => onOpenFormHandlerLeft(record)}
+                    />
+                </Tooltip>
+                <Tooltip title="删除">
+                    <Button
+                        key="del"
+                        type="text"
+                        icon={<DeleteOutlined />}
+                        onClick={() => onDelHandlerLeft([record.id!])}
+                    />
+                </Tooltip>
             </Space>
         ),
     },
@@ -128,18 +132,22 @@ export const listColumns: ({
         width: 90,
         render: (_, record) => (
             <Space size={0}>
-                <Button
-                    key="edit"
-                    type="text"
-                    icon={<EditOutlined />}
-                    onClick={() => onOpenFormHandler(record)}
-                />
-                <Button
-                    key="del"
-                    type="text"
-                    icon={<DeleteOutlined />}
-                    onClick={() => onDelHandler([record.id!])}
-                />
+                <Tooltip title="编辑">
+                    <Button
+                        key="edit"
+                        type="text"
+                        icon={<EditOutlined />}
+                        onClick={() => onOpenFormHandler(record)}
+                    />
+                </Tooltip>
+                <Tooltip title="删除">
+                    <Button
+                        key="del"
+                        type="text"
+                        icon={<DeleteOutlined />}
+                        onClick={() => onDelHandler([record.id!])}
+                    />
+                </Tooltip>
             </Space>
         ),
     },

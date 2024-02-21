@@ -165,30 +165,38 @@ export const columns: ({
         width: 180,
         render: (_, record) => (
             <Space size="small">
-                <Button
-                    key="detail"
-                    type="text"
-                    icon={<DiffOutlined />}
-                    onClick={() => onOpenDetailHanler(record)}
-                />
-                <Button
-                    key="edit"
-                    type="text"
-                    icon={<EditOutlined />}
-                    onClick={() => onOpenFormHandler(record)}
-                />
-                <Button
-                    key="del"
-                    type="text"
-                    icon={<DeleteOutlined />}
-                    onClick={() => onDelHandler([record.id!])}
-                />
-                <Button
-                    key="resetPwd"
-                    type="text"
-                    icon={<RedoOutlined />}
-                    onClick={() => onOpenResetPwdHanler(record)}
-                />
+                <Tooltip title="详情">
+                    <Button
+                        key="detail"
+                        type="text"
+                        icon={<DiffOutlined />}
+                        onClick={() => onOpenDetailHanler(record)}
+                    />
+                </Tooltip>
+                <Tooltip title="编辑">
+                    <Button
+                        key="edit"
+                        type="text"
+                        icon={<EditOutlined />}
+                        onClick={() => onOpenFormHandler(record)}
+                    />
+                </Tooltip>
+                <Tooltip title="删除">
+                    <Button
+                        key="del"
+                        type="text"
+                        icon={<DeleteOutlined />}
+                        onClick={() => onDelHandler([record.id!])}
+                    />
+                </Tooltip>
+                <Tooltip title="重置密码">
+                    <Button
+                        key="resetPwd"
+                        type="text"
+                        icon={<RedoOutlined />}
+                        onClick={() => onOpenResetPwdHanler(record)}
+                    />
+                </Tooltip>
             </Space>
         ),
     },
