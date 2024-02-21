@@ -10,7 +10,7 @@ const HomePage = lazy(() => import(`@/pages/dashboard/workbench`));
 const Analysis = lazy(() => import('@/pages/dashboard/analysis'));
 
 const dashboard: AppRouteObject = {
-    order: 1,
+    sortValue: 1,
     path: 'dashboard',
     element: (
         <Suspense fallback={<CircleLoading />}>

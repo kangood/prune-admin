@@ -37,7 +37,7 @@ export default function PermissionModal({
                 wrapperCol={{ span: 18 }}
                 layout="horizontal"
             >
-                <Form.Item<Permission> label="Type" name="type" required>
+                <Form.Item<Permission> label="Type" name="resourceType" required>
                     <Radio.Group optionType="button" buttonStyle="solid">
                         <Radio value={PermissionType.CATALOGUE}>CATALOGUE</Radio>
                         <Radio value={PermissionType.MENU}>MENU</Radio>
@@ -68,14 +68,14 @@ export default function PermissionModal({
                     />
                 </Form.Item>
 
-                <Form.Item<Permission> label="Route" name="route" required>
+                <Form.Item<Permission> label="Route" name="path" required>
                     <Input />
                 </Form.Item>
 
                 <Form.Item<Permission>
                     label="Component"
                     name="component"
-                    required={formValue.type === PermissionType.MENU}
+                    required={formValue.resourceType === PermissionType.MENU}
                 >
                     <Input />
                 </Form.Item>
@@ -95,7 +95,7 @@ export default function PermissionModal({
                     </Radio.Group>
                 </Form.Item>
 
-                <Form.Item<Permission> label="Order" name="order">
+                <Form.Item<Permission> label="Order" name="sortValue">
                     <InputNumber style={{ width: '100%' }} />
                 </Form.Item>
 

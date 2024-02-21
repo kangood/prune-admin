@@ -12,7 +12,7 @@ function MenuLevel({ title }: { title: string }) {
 }
 
 const menulevel: AppRouteObject = {
-    order: 5,
+    sortValue: 5,
     path: 'menu_level',
     element: (
         <Suspense fallback={<CircleLoading />}>

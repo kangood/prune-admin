@@ -9,7 +9,7 @@ import { AppRouteObject } from '#/router';
 const ClipboardPage = lazy(() => import('@/pages/functions/clipboard'));
 
 const functions: AppRouteObject = {
-    order: 4,
+    sortValue: 4,
     path: 'functions',
     element: (
         <Suspense fallback={<CircleLoading />}>

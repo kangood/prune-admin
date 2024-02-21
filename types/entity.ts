@@ -30,10 +30,10 @@ export interface Permission {
     parentId: string;
     name: string;
     label: string;
-    type: PermissionType;
-    route: string;
+    resourceType: PermissionType;
+    path: string;
     status?: BasicStatus;
-    order?: number;
+    sortValue?: number;
     icon?: string;
     component?: string;
     hide?: boolean;

@@ -15,7 +15,7 @@ const PermissioPage = lazy(() => import('@/pages/management/system/permission'))
 const Blog = lazy(() => import('@/pages/management/blog'));
 
 const management: AppRouteObject = {
-    order: 2,
+    sortValue: 2,
     path: 'management',
     element: (
         <Suspense fallback={<CircleLoading />}>

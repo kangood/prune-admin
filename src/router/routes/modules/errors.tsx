@@ -13,7 +13,7 @@ const Page500 = lazy(() => import('@/pages/sys/error/Page500'));
 const errors: AppRouteObject[] = [
     {
         path: 'error',
-        order: 6,
+        sortValue: 6,
         element: (
             <Suspense fallback={<CircleLoading />}>
                 <Outlet />

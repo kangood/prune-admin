@@ -18,12 +18,12 @@ const defaultPermissionValue: Permission = {
     parentId: '',
     name: '',
     label: '',
-    route: '',
+    path: '',
     component: '',
     icon: '',
     hide: false,
     status: BasicStatus.ENABLE,
-    type: PermissionType.CATALOGUE,
+    resourceType: PermissionType.CATALOGUE,
 };
 export default () => {
     const permissions = useUserPermission();

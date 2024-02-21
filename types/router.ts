@@ -44,7 +44,7 @@ export interface RouteMeta {
     frameSrc?: string;
 }
 export type AppRouteObject = {
-    order?: number;
+    sortValue?: number;
     meta?: RouteMeta;
     children?: AppRouteObject[];
 } & Omit<RouteObject, 'children'>;

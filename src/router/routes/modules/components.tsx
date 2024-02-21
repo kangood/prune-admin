@@ -16,7 +16,7 @@ const UploadPage = lazy(() => import('@/pages/components/upload'));
 const ChartPage = lazy(() => import('@/pages/components/chart'));
 
 const components: AppRouteObject = {
-    order: 3,
+    sortValue: 3,
     path: 'components',
     element: (
         <Suspense fallback={<CircleLoading />}>

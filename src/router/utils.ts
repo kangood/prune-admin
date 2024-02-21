@@ -14,7 +14,7 @@ export const menuFilter = (items: AppRouteObject[]) => {
             }
             return show;
         })
-        .sort(ascend((item) => item.order || Infinity));
+        .sort(ascend((item) => item.sortValue || Infinity));
 };
 
 /**

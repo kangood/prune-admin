@@ -47,11 +47,11 @@ function transformPermissionToMenuRoutes(
 ) {
     return permissions.map((permission) => {
         const {
-            route,
-            type,
+            path,
+            resourceType,
             label,
             icon,
-            order,
+            sortValue,
             hide,
             status,
             frameSrc,
@@ -62,7 +62,7 @@ function transformPermissionToMenuRoutes(
         } = permission;
 
         const appRoute: AppRouteObject = {
-            path: route,
+            path,
             meta: {
                 label,
                 key: getCompleteRoute(permission, flattenedPermissions),
@@ -71,7 +71,7 @@ function transformPermissionToMenuRoutes(
             },
         };
 
-        if (order) appRoute.order = order;
+        if (sortValue) appRoute.sortValue = sortValue;
         if (icon) appRoute.meta!.icon = icon;
         if (frameSrc) appRoute.meta!.frameSrc = frameSrc;
         if (newFeature)
@@ -84,7 +84,7 @@ function transformPermissionToMenuRoutes(
                 </ProTag>
             );
 
-        if (type === PermissionType.CATALOGUE) {
+        if (resourceType === PermissionType.CATALOGUE) {
             appRoute.meta!.hideTab = true;
             if (!parentId) {
                 appRoute.element = (
@@ -97,10 +97,10 @@ function transformPermissionToMenuRoutes(
             if (!isEmpty(children)) {
                 appRoute.children.unshift({
                     index: true,
-                    element: <Navigate to={children[0].route} replace />,
+                    element: <Navigate to={children[0].path} replace />,
                 });
             }
-        } else if (type === PermissionType.MENU) {
+        } else if (resourceType === PermissionType.MENU) {
             const Element = lazy(resolveComponent(component!) as any);
             if (frameSrc) {
                 appRoute.element = <Element src={frameSrc} />;
@@ -114,14 +114,14 @@ function transformPermissionToMenuRoutes(
 }
 
 /**
- * Splicing from the root permission route to the current permission route
+ * Splicing from the root permission path to the current permission path
  * @param {Permission} permission - current permission
  * @param {Permission[]} flattenedPermissions - flattened permission array
- * @param {string} route - parent permission route
- * @returns {string} - The complete route after splicing
+ * @param {string} path - parent permission path
+ * @returns {string} - The complete path after splicing
  */
-function getCompleteRoute(permission: Permission, flattenedPermissions: Permission[], route = '') {
-    const currentRoute = route ? `/${permission.route}${route}` : `/${permission.route}`;
+function getCompleteRoute(permission: Permission, flattenedPermissions: Permission[], path = '') {
+    const currentRoute = path ? `/${permission.path}${path}` : `/${permission.path}`;
 
     if (permission.parentId) {
         const parentPermission = flattenedPermissions.find((p) => p.id === permission.parentId)!;
