@@ -12,6 +12,7 @@ import {
     message,
     Dropdown,
     MenuProps,
+    Card,
 } from 'antd';
 import locale from 'antd/es/date-picker/locale/zh_CN';
 import { useState } from 'react';
@@ -139,89 +140,96 @@ export default function Stations() {
     ];
     return (
         <div>
-            {/* 搜索和操作栏 */}
-            <Form form={form} onFinish={onFinishHandler}>
-                <Row gutter={24}>
-                    <Col span={4}>
-                        <Form.Item name="name">
-                            <Input placeholder="岗位名称" allowClear />
-                        </Form.Item>
-                    </Col>
-                    <Col span={4}>
-                        <Form.Item name="orgId">
-                            <TreeSelect
-                                showSearch
-                                style={{ width: '100%' }}
-                                value={treeValue}
-                                dropdownStyle={{ maxHeight: 400, overflow: 'auto' }}
-                                placeholder="机构"
-                                allowClear
-                                treeDefaultExpandAll
-                                onChange={onChange}
-                                treeData={listOrgTree}
-                                fieldNames={{ value: 'id' }}
-                            />
-                        </Form.Item>
-                    </Col>
-                    <Col span={4}>
-                        <Form.Item name="rangePicker">
-                            <DatePicker.RangePicker locale={locale} onChange={dateChangeHandler} />
-                        </Form.Item>
-                    </Col>
-                    <Col span={2} />
-                    <Col span={2}>
-                        <Form.Item name="search">
-                            <Button type="primary" htmlType="submit">
-                                搜索
+            <Card>
+                {/* 搜索和操作栏 */}
+                <Form form={form} onFinish={onFinishHandler}>
+                    <Row gutter={24}>
+                        <Col span={4}>
+                            <Form.Item name="name">
+                                <Input placeholder="岗位名称" allowClear />
+                            </Form.Item>
+                        </Col>
+                        <Col span={4}>
+                            <Form.Item name="orgId">
+                                <TreeSelect
+                                    showSearch
+                                    style={{ width: '100%' }}
+                                    value={treeValue}
+                                    dropdownStyle={{ maxHeight: 400, overflow: 'auto' }}
+                                    placeholder="机构"
+                                    allowClear
+                                    treeDefaultExpandAll
+                                    onChange={onChange}
+                                    treeData={listOrgTree}
+                                    fieldNames={{ value: 'id' }}
+                                />
+                            </Form.Item>
+                        </Col>
+                        <Col span={4}>
+                            <Form.Item name="rangePicker">
+                                <DatePicker.RangePicker
+                                    locale={locale}
+                                    onChange={dateChangeHandler}
+                                />
+                            </Form.Item>
+                        </Col>
+                        <Col span={2} />
+                        <Col span={2}>
+                            <Form.Item name="search">
+                                <Button type="primary" htmlType="submit">
+                                    搜索
+                                </Button>
+                            </Form.Item>
+                        </Col>
+                        <Col span={2}>
+                            <Button type="primary" onClick={resetHandler}>
+                                重置
                             </Button>
-                        </Form.Item>
-                    </Col>
-                    <Col span={2}>
-                        <Button type="primary" onClick={resetHandler}>
-                            重置
-                        </Button>
-                    </Col>
-                    <Col span={2}>
-                        <Button type="primary" onClick={() => onOpenFormHandler()}>
-                            添加
-                        </Button>
-                    </Col>
-                    <Col span={2}>
-                        <Button type="primary" onClick={batchDelHandler}>
-                            删除
-                        </Button>
-                    </Col>
-                    <Col span={2}>
-                        <Dropdown menu={{ items }}>
-                            <Button>
-                                更多
-                                <DownOutlined />
+                        </Col>
+                        <Col span={2}>
+                            <Button type="primary" onClick={() => onOpenFormHandler()}>
+                                添加
                             </Button>
-                        </Dropdown>
-                    </Col>
-                </Row>
-            </Form>
-            {/* 表格数据 */}
-            <Table
-                rowSelection={{
-                    ...rowSelection,
-                }}
-                columns={columns({ onOpenFormHandler, onDelHandler })}
-                dataSource={data?.items}
-                pagination={false}
-            />
-            {/* 自定义分页 */}
-            <Pagination
-                showSizeChanger
-                onChange={onPageChange}
-                total={data?.meta.totalItems}
-                showTotal={(total) => `共 ${total} 条`}
-                current={data?.meta.currentPage}
-            />
-            {/* 编辑弹出层表单 */}
-            {showInfo && <StationEditForm clickOne={clickOne} onClose={closeAndRefetchHandler} />}
-            {/* 导入Excel表单 */}
-            {importShowInfo && <StationImportForm onClose={closeAndRefetchImportHandler} />}
+                        </Col>
+                        <Col span={2}>
+                            <Button type="primary" onClick={batchDelHandler}>
+                                删除
+                            </Button>
+                        </Col>
+                        <Col span={2}>
+                            <Dropdown menu={{ items }}>
+                                <Button>
+                                    更多
+                                    <DownOutlined />
+                                </Button>
+                            </Dropdown>
+                        </Col>
+                    </Row>
+                </Form>
+                {/* 表格数据 */}
+                <Table
+                    rowSelection={{
+                        ...rowSelection,
+                    }}
+                    columns={columns({ onOpenFormHandler, onDelHandler })}
+                    dataSource={data?.items}
+                    pagination={false}
+                />
+                {/* 自定义分页 */}
+                <Pagination
+                    showSizeChanger
+                    onChange={onPageChange}
+                    total={data?.meta.totalItems}
+                    showTotal={(total) => `共 ${total} 条`}
+                    current={data?.meta.currentPage}
+                />
+                {/* 编辑弹出层表单 */}
+                {showInfo && (
+                    <StationEditForm clickOne={clickOne} onClose={closeAndRefetchHandler} />
+                )}
+                {/* 导入Excel表单 */}
+                {importShowInfo && <StationImportForm onClose={closeAndRefetchImportHandler} />}
+            </Card>
         </div>
     );
 }

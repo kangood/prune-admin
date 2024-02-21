@@ -9,6 +9,7 @@ import {
     DatePicker,
     TreeSelect,
     message,
+    Card,
 } from 'antd';
 import locale from 'antd/es/date-picker/locale/zh_CN';
 import { useState } from 'react';
@@ -132,99 +133,107 @@ export default function Users() {
     };
     return (
         <div>
-            {/* 搜索和操作栏 */}
-            <Form form={form} onFinish={onFinishHandler}>
-                <Row gutter={24}>
-                    <Col span={4}>
-                        <Form.Item name="account">
-                            <Input placeholder="账号" allowClear />
-                        </Form.Item>
-                    </Col>
-                    <Col span={4}>
-                        <Form.Item name="orgId">
-                            <TreeSelect
-                                showSearch
-                                style={{ width: '100%' }}
-                                value={treeValue}
-                                dropdownStyle={{ maxHeight: 400, overflow: 'auto' }}
-                                placeholder="机构"
-                                allowClear
-                                treeDefaultExpandAll
-                                onChange={onChange}
-                                treeData={listOrgTree}
-                                fieldNames={{ value: 'id' }}
-                            />
-                        </Form.Item>
-                    </Col>
-                    <Col span={4}>
-                        <Form.Item name="rangePicker">
-                            <DatePicker.RangePicker locale={locale} onChange={dateChangeHandler} />
-                        </Form.Item>
-                    </Col>
-                    <Col span={2} />
-                    <Col span={2}>
-                        <Form.Item name="search">
-                            <Button type="primary" htmlType="submit">
-                                搜索
+            <Card>
+                {/* 搜索和操作栏 */}
+                <Form form={form} onFinish={onFinishHandler}>
+                    <Row gutter={24}>
+                        <Col span={4}>
+                            <Form.Item name="account">
+                                <Input placeholder="账号" allowClear />
+                            </Form.Item>
+                        </Col>
+                        <Col span={4}>
+                            <Form.Item name="orgId">
+                                <TreeSelect
+                                    showSearch
+                                    style={{ width: '100%' }}
+                                    value={treeValue}
+                                    dropdownStyle={{ maxHeight: 400, overflow: 'auto' }}
+                                    placeholder="机构"
+                                    allowClear
+                                    treeDefaultExpandAll
+                                    onChange={onChange}
+                                    treeData={listOrgTree}
+                                    fieldNames={{ value: 'id' }}
+                                />
+                            </Form.Item>
+                        </Col>
+                        <Col span={4}>
+                            <Form.Item name="rangePicker">
+                                <DatePicker.RangePicker
+                                    locale={locale}
+                                    onChange={dateChangeHandler}
+                                />
+                            </Form.Item>
+                        </Col>
+                        <Col span={2} />
+                        <Col span={2}>
+                            <Form.Item name="search">
+                                <Button type="primary" htmlType="submit">
+                                    搜索
+                                </Button>
+                            </Form.Item>
+                        </Col>
+                        <Col span={2}>
+                            <Button type="primary" onClick={resetHandler}>
+                                重置
                             </Button>
-                        </Form.Item>
-                    </Col>
-                    <Col span={2}>
-                        <Button type="primary" onClick={resetHandler}>
-                            重置
-                        </Button>
-                    </Col>
-                    <Col span={2}>
-                        <Button type="primary" onClick={() => onOpenFormHandler()}>
-                            添加
-                        </Button>
-                    </Col>
-                    <Col span={2}>
-                        <Button type="primary" onClick={batchDelHandler}>
-                            删除
-                        </Button>
-                    </Col>
-                </Row>
-            </Form>
-            {/* 表格数据 */}
-            <Table
-                rowSelection={{
-                    ...rowSelection,
-                }}
-                columns={columns({
-                    onOpenFormHandler,
-                    onDelHandler,
-                    onOpenDetailHanler,
-                    onOpenResetPwdHanler,
-                })}
-                dataSource={data?.items}
-                pagination={false}
-                scroll={{ x: 1400 }}
-            />
-            {/* 自定义分页 */}
-            <Pagination
-                showSizeChanger
-                onChange={onPageChange}
-                total={data?.meta.totalItems}
-                showTotal={(total) => `共 ${total} 条`}
-                current={data?.meta.currentPage}
-            />
-            {/* 弹出层表单 */}
-            {showInfo && (
-                <UserEditForm
-                    clickOne={clickOne}
-                    onClose={closeAndRefetchHandler}
-                    dictListTypes={dictListTypes}
+                        </Col>
+                        <Col span={2}>
+                            <Button type="primary" onClick={() => onOpenFormHandler()}>
+                                添加
+                            </Button>
+                        </Col>
+                        <Col span={2}>
+                            <Button type="primary" onClick={batchDelHandler}>
+                                删除
+                            </Button>
+                        </Col>
+                    </Row>
+                </Form>
+                {/* 表格数据 */}
+                <Table
+                    rowSelection={{
+                        ...rowSelection,
+                    }}
+                    columns={columns({
+                        onOpenFormHandler,
+                        onDelHandler,
+                        onOpenDetailHanler,
+                        onOpenResetPwdHanler,
+                    })}
+                    dataSource={data?.items}
+                    pagination={false}
+                    scroll={{ x: 1400 }}
                 />
-            )}
-            {/* 详情页弹出页面 */}
-            {showInfoDetail && (
-                <UserDetailPage clickOne={clickOne} onClose={() => setShowInfoDetail(false)} />
-            )}
-            {/* 重设密码页弹出页面 */}
-            {showInfoResetPwd && (
-                <ResetPwdForm clickId={clickOne?.id} onClose={() => setShowInfoResetPwd(false)} />
-            )}
+                {/* 自定义分页 */}
+                <Pagination
+                    showSizeChanger
+                    onChange={onPageChange}
+                    total={data?.meta.totalItems}
+                    showTotal={(total) => `共 ${total} 条`}
+                    current={data?.meta.currentPage}
+                />
+                {/* 弹出层表单 */}
+                {showInfo && (
+                    <UserEditForm
+                        clickOne={clickOne}
+                        onClose={closeAndRefetchHandler}
+                        dictListTypes={dictListTypes}
+                    />
+                )}
+                {/* 详情页弹出页面 */}
+                {showInfoDetail && (
+                    <UserDetailPage clickOne={clickOne} onClose={() => setShowInfoDetail(false)} />
+                )}
+                {/* 重设密码页弹出页面 */}
+                {showInfoResetPwd && (
+                    <ResetPwdForm
+                        clickId={clickOne?.id}
+                        onClose={() => setShowInfoResetPwd(false)}
+                    />
+                )}
+            </Card>
         </div>
     );
 }
