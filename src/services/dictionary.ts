@@ -31,7 +31,7 @@ export const useDictListTypes = (types?: string) => {
 /**
  * 根据ID查询单个字典值
  */
-export const useGetDictById = (id: number) => {
+export const useGetDictById = (id: string) => {
     return useQuery([], () => service.get(`dict/${id}`).then((response) => response.data));
 };
 
@@ -65,7 +65,7 @@ export const useListDictSingleType = (
  * 批量删除字典
  */
 export const useDelDicts = () => {
-    return useMutation(async (ids: number[]) => service.delete('dict', { data: { ids } }), {
+    return useMutation(async (ids: string[]) => service.delete('dict', { data: { ids } }), {
         onSuccess: () => {
             globalSuccess();
             queryClient.invalidateQueries(['listDictSingleType']);

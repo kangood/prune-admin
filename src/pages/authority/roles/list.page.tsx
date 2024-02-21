@@ -52,7 +52,7 @@ export default function Roles() {
         setShowInfo(true);
     };
     // 删除处理器，点击删除按钮触发API调用
-    const onDelHandler = async (ids: number[]) => {
+    const onDelHandler = async (ids: string[]) => {
         delMutate(ids);
     };
     // 关闭模态窗口并刷新数据
@@ -73,7 +73,7 @@ export default function Roles() {
     };
     // 批量删除处理
     const [selectedRowKeys, setSelectedRowKeys] = useState<React.Key[]>([]);
-    const [selectedIds, setSelectedIds] = useState<number[]>();
+    const [selectedIds, setSelectedIds] = useState<string[]>();
     const batchDelHandler = async () => {
         if (!selectedIds) {
             message.error('请勾选数据之后删除');
@@ -92,7 +92,7 @@ export default function Roles() {
             // 用于显示勾选项
             setSelectedRowKeys(newSelectedRowKeys);
             // 删除时的ids传值
-            const ids: number[] = [];
+            const ids: string[] = [];
             selectedRows.forEach((val, index) => {
                 ids[index] = val.id!;
             });
@@ -109,11 +109,11 @@ export default function Roles() {
     // ==========角色分配处理==========
     const [showInfoRoleAllot, setShowInfoRoleAllot] = useState<boolean>(false);
     const [shouldFetch, setShouldFetch] = useState(false);
-    const [clickRoleId, setClickRoleId] = useState(0);
+    const [clickRoleId, setClickRoleId] = useState('');
     // 点击后就去查询，在当前页面查完再传到role-allot页面
     const { data: listUserRoleRelate } = useListUserRoleRelate(clickRoleId, shouldFetch);
     // 打开
-    const onOpenRoleAllotHandler = async (roleId: number) => {
+    const onOpenRoleAllotHandler = async (roleId: string) => {
         setClickRoleId(roleId);
         setShouldFetch(true);
         setShowInfoRoleAllot(true);
@@ -137,7 +137,7 @@ export default function Roles() {
         });
     }, [listMenuTree]);
     // 打开
-    const onOpenResourceAllotHandler = async (roleId: number) => {
+    const onOpenResourceAllotHandler = async (roleId: string) => {
         setClickRoleId(roleId);
         setShowInfoResourceAllot(true);
     };

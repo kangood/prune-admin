@@ -27,7 +27,7 @@ import { OutputType as ResourceOutputType } from '../../setting/menus/resource-l
 import { PermissionType } from '#/enum';
 
 interface ResourceAllotPageProps {
-    clickRoleId: number;
+    clickRoleId: string;
     clickListRoleAuthorityId: any;
     listMenuTreeInitData: OutputType[];
     listMenuTreeVariable?: OutputType[];
@@ -35,10 +35,10 @@ interface ResourceAllotPageProps {
 }
 
 export interface InputType {
-    menuIdList?: number[];
-    resourceIdList?: number[];
-    roleId?: number;
-    roleIds?: number[];
+    menuIdList?: string[];
+    resourceIdList?: string[];
+    roleId?: string;
+    roleIds?: string[];
 }
 
 /**
@@ -132,7 +132,7 @@ export const ResourceAllotPage: React.FC<ResourceAllotPageProps> = ({
             setCheckedNodes({
                 roleId: clickRoleId,
                 menuIdList,
-                resourceIdList: selectedRowKeys.map((item) => item as number),
+                resourceIdList: selectedRowKeys.map((item) => item as string),
             });
         } else {
             setCheckedNodes(undefined);
@@ -172,10 +172,10 @@ export const ResourceAllotPage: React.FC<ResourceAllotPageProps> = ({
     };
     // ==========资源表格处理==========
     // 点击树节点触发
-    const [clickMenuId, setClickMenuId] = useState<number>(0);
+    const [clickMenuId, setClickMenuId] = useState<string>('');
     const onSelect = (selectedKeys: React.Key[]) => {
         if (!isEmpty(selectedKeys)) {
-            setClickMenuId(selectedKeys[0] as number);
+            setClickMenuId(selectedKeys[0] as string);
         }
     };
     const { data: resourceData } = useListResource({ menuId: clickMenuId });
@@ -212,7 +212,7 @@ export const ResourceAllotPage: React.FC<ResourceAllotPageProps> = ({
             setCheckedNodes({
                 roleId: clickRoleId,
                 menuIdList: checkedNodes?.menuIdList,
-                resourceIdList: finalSelectedRowKeys.map((item) => Number(item)),
+                resourceIdList: finalSelectedRowKeys.map((item) => String(item)),
             });
         },
     };

@@ -21,7 +21,7 @@ export interface QueryResultType<T> {
  * 树节点
  */
 export interface TreeNode {
-    id: number;
+    id: string;
     label: string;
     parent: TreeNode | null;
     children: TreeNode[];

@@ -6,7 +6,7 @@ import { dayjsFormat } from '@/utils/helpers';
 
 export interface InputType {
     name?: string;
-    orgId?: number;
+    orgId?: string;
     timeRange?: string;
     rangePicker?: string;
     state?: boolean;
@@ -16,7 +16,7 @@ export interface InputType {
 }
 
 export interface OutputType {
-    id?: number;
+    id?: string;
     code?: string;
     category?: string;
     bucketName?: string;
@@ -34,7 +34,7 @@ export interface OutputType {
 
 interface IProps {
     onOpenFormHandler: (clickOne: OutputType) => void;
-    onDelHandler: (ids: number[]) => void;
+    onDelHandler: (ids: string[]) => void;
     onOpenDetailHanler: (clickOne: OutputType) => void;
 }
 

@@ -6,7 +6,7 @@ import { useSaveUserRoleList, OutputType as UserRoleOutputType } from '@/service
 
 interface RoleAllotPageProps {
     listUser: UserOutputType[];
-    clickRoleId: number;
+    clickRoleId: string;
     clickUserRoleList: UserRoleOutputType[];
     onClose: () => void;
 }
@@ -57,7 +57,7 @@ export const RoleAllotPage: React.FC<RoleAllotPageProps> = ({
     };
     // 表单提交处理
     const submitHandle = async () => {
-        await mutateAsync({ roleId: clickRoleId, userIdList: targetKeys.map(Number) });
+        await mutateAsync({ roleId: clickRoleId, userIdList: targetKeys.map(String) });
         onClose();
     };
     return (

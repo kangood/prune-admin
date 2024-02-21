@@ -6,11 +6,11 @@ import { useDeleteMultiArea, useListAreaTree } from '@/services/area';
 import { AreaEditForm } from './edit.page';
 
 export interface InputType {
-    id?: number;
+    id?: string;
     // 生成树用
-    parent?: number;
+    parent?: string;
     // 展示用
-    parentId?: number;
+    parentId?: string;
     label?: string;
     code?: string;
     fullName?: string;
@@ -25,7 +25,7 @@ export default function Areas() {
     const [form] = Form.useForm();
     const defaultClickOne: InputType = { source: '02' };
     // 状态定义
-    const [checkedKeys, setCheckedKeys] = useState<number[]>();
+    const [checkedKeys, setCheckedKeys] = useState<string[]>();
     const [clickOne, setClickOne] = useState<InputType>(defaultClickOne);
     // API-hook
     const { data: listTree } = useListAreaTree();
@@ -35,7 +35,7 @@ export default function Areas() {
     const onCheck = (checked: React.Key[] | { checked: React.Key[] }) => {
         if (!Array.isArray(checked)) {
             const { checked: checkedValues } = checked;
-            setCheckedKeys(checkedValues.map((key) => Number(key)));
+            setCheckedKeys(checkedValues.map((key) => String(key)));
         }
     };
     // 树节点点击时处理

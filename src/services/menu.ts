@@ -51,7 +51,7 @@ export const useCreateMenu = () => {
  * 删除
  */
 export const useDeleteMenu = () => {
-    return useMutation(async (ids: number[]) => service.delete('/menu', { data: { ids } }), {
+    return useMutation(async (ids: string[]) => service.delete('/menu', { data: { ids } }), {
         onSuccess: () => {
             globalSuccess();
             queryClient.invalidateQueries(['listMenuTree']);

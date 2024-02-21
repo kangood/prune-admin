@@ -17,7 +17,7 @@ export interface InputType {
 }
 
 export interface OutputType {
-    id?: number;
+    id?: string;
     code?: string;
     name?: string;
     category?: string;
@@ -33,9 +33,9 @@ export interface OutputType {
 
 interface IProps {
     onOpenFormHandler: (clickOne: OutputType) => void;
-    onDelHandler: (ids: number[]) => void;
-    onOpenRoleAllotHandler: (id: number) => void;
-    onOpenResourceAllotHandler: (id: number) => void;
+    onDelHandler: (ids: string[]) => void;
+    onOpenRoleAllotHandler: (id: string) => void;
+    onOpenResourceAllotHandler: (id: string) => void;
 }
 
 export const columns: ({

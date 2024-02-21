@@ -42,7 +42,7 @@ export const useCreateArea = () => {
  * 删除
  */
 export const useDeleteMultiArea = () => {
-    return useMutation(async (ids: number[]) => service.delete('/area', { data: { ids } }), {
+    return useMutation(async (ids: string[]) => service.delete('/area', { data: { ids } }), {
         onSuccess: () => {
             globalSuccess();
             queryClient.invalidateQueries(['listAreaTree']);

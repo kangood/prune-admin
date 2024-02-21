@@ -46,7 +46,7 @@ export const useCreateUser = () => {
  * 删除多个用户
  */
 export const useDeleteUser = () => {
-    return useMutation(async (ids: number[]) => service.delete('/user', { data: { ids } }), {
+    return useMutation(async (ids: string[]) => service.delete('/user', { data: { ids } }), {
         onSuccess: () => {
             globalSuccess();
             queryClient.invalidateQueries(['listUserRelate']);

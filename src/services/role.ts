@@ -18,7 +18,7 @@ export const useListRoleRelate = (values?: InputType) => {
  * 删除
  */
 export const useDeleteRole = () => {
-    return useMutation(async (ids: number[]) => service.delete('role', { data: { ids } }), {
+    return useMutation(async (ids: string[]) => service.delete('role', { data: { ids } }), {
         onSuccess: () => {
             globalSuccess();
             queryClient.invalidateQueries(['listRoleRelate']);

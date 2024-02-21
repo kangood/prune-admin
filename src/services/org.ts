@@ -40,7 +40,7 @@ export const useCreateOrg = () => {
  * 删除
  */
 export const useDeleteOrg = () => {
-    return useMutation(async (ids: number[]) => service.delete('/org', { data: { ids } }), {
+    return useMutation(async (ids: string[]) => service.delete('/org', { data: { ids } }), {
         onSuccess: () => {
             globalSuccess();
             queryClient.invalidateQueries(['listOrgTree']);

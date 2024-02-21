@@ -73,7 +73,7 @@ export default function Dictionaries() {
         }
     };
     // 删除处理器，点击删除按钮触发API调用
-    const onDelHandlerLeft = async (ids: number[]) => {
+    const onDelHandlerLeft = async (ids: string[]) => {
         await delMutate(ids);
         listTypeRefetch();
     };
@@ -113,7 +113,7 @@ export default function Dictionaries() {
     ];
     // 多选框处理
     const [selectedRowKeysLeft, setSelectedRowKeysLeft] = useState<React.Key[]>([]);
-    const [selectedIdsLeft, setSelectedIdsLeft] = useState<number[]>();
+    const [selectedIdsLeft, setSelectedIdsLeft] = useState<string[]>();
     const batchDelHandlerLeft = async () => {
         if (!selectedIdsLeft) {
             message.error('请勾选数据之后删除');
@@ -131,7 +131,7 @@ export default function Dictionaries() {
             // 用于显示勾选项
             setSelectedRowKeysLeft(newSelectedRowKeys);
             // 删除时的ids传值
-            const ids: number[] = [];
+            const ids: string[] = [];
             selectedRows.forEach((val, index) => {
                 ids[index] = val.id!;
             });
@@ -161,7 +161,7 @@ export default function Dictionaries() {
         setShowInfo(false);
     };
     // 删除处理器，点击删除按钮触发API调用
-    const onDelHandler = async (ids: number[]) => {
+    const onDelHandler = async (ids: string[]) => {
         delMutate(ids);
     };
     // 表单提交处理
@@ -178,7 +178,7 @@ export default function Dictionaries() {
     };
     // 多选框处理
     const [selectedRowKeys, setSelectedRowKeys] = useState<React.Key[]>([]);
-    const [selectedIds, setSelectedIds] = useState<number[]>();
+    const [selectedIds, setSelectedIds] = useState<string[]>();
     const batchDelHandler = async () => {
         if (!selectedIds) {
             message.error('请勾选数据之后删除');
@@ -196,7 +196,7 @@ export default function Dictionaries() {
             // 用于显示勾选项
             setSelectedRowKeys(newSelectedRowKeys);
             // 删除时的ids传值
-            const ids: number[] = [];
+            const ids: string[] = [];
             selectedRows.forEach((val, index) => {
                 ids[index] = val.id!;
             });

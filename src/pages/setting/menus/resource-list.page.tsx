@@ -11,13 +11,13 @@ import { ResourceEditForm } from './resource-edit.page';
 import { PermissionType } from '#/enum';
 
 interface ResourceListPageProps {
-    clickMenuId: number;
+    clickMenuId: string;
     clickMenuLabel: string | undefined;
     clickMenuResourceType: string | undefined;
 }
 
 export interface InputType {
-    menuId?: number;
+    menuId?: string;
     code?: string;
     name?: string;
     timeRange?: string;
@@ -27,8 +27,8 @@ export interface InputType {
 }
 
 export interface OutputType {
-    id?: number;
-    menuId?: number;
+    id?: string;
+    menuId?: string;
     menuLabel?: string;
     // ...
 }
@@ -75,7 +75,7 @@ export const ResourceListPage: React.FC<ResourceListPageProps> = ({
     };
     // 批量删除处理
     const [selectedRowKeys, setSelectedRowKeys] = useState<React.Key[]>([]);
-    const [selectedIds, setSelectedIds] = useState<number[]>();
+    const [selectedIds, setSelectedIds] = useState<string[]>();
     const batchDelHandler = async () => {
         if (!selectedIds || isEmpty(selectedIds)) {
             message.error('请勾选数据之后删除');
@@ -94,7 +94,7 @@ export const ResourceListPage: React.FC<ResourceListPageProps> = ({
             // 用于显示勾选项
             setSelectedRowKeys(newSelectedRowKeys);
             // 删除时的ids传值
-            const ids: number[] = [];
+            const ids: string[] = [];
             selectedRows.forEach((val, index) => {
                 ids[index] = val.id!;
             });
@@ -115,7 +115,7 @@ export const ResourceListPage: React.FC<ResourceListPageProps> = ({
         setResourceEditShowInfo(true);
     };
     // 删除处理器，点击删除按钮触发API调用
-    const onDelHandler = async (ids: number[]) => {
+    const onDelHandler = async (ids: string[]) => {
         delMutate(ids);
     };
     return (

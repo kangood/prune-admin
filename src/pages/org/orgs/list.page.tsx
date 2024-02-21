@@ -6,11 +6,11 @@ import { useDeleteOrg, useListOrgTree } from '@/services/org';
 import { OrgEditForm } from './edit.page';
 
 export interface InputType {
-    id?: number;
+    id?: string;
     // 生成树用
-    parent?: number;
+    parent?: string;
     // 展示用
-    parentId?: number;
+    parentId?: string;
     label?: string;
     abbreviation?: string;
     type?: string;
@@ -20,14 +20,14 @@ export interface InputType {
 }
 
 export interface OutputType {
-    id?: number;
+    id?: string;
     parent?: OutputType;
     children?: OutputType[];
     depth?: number;
     label?: string;
     type?: string;
     abbreviation?: string;
-    parentId?: number;
+    parentId?: string;
     sortValue?: number;
     state?: boolean;
     describe?: string;
@@ -42,7 +42,7 @@ export default function Orgs() {
     const [form] = Form.useForm();
     const defaultClickOne: InputType = { type: '01', state: true };
     // 状态定义
-    const [checkedKeys, setCheckedKeys] = useState<number[]>();
+    const [checkedKeys, setCheckedKeys] = useState<string[]>();
     const [clickOne, setClickOne] = useState<InputType>(defaultClickOne);
     // API-hook
     const { data: listOrgTree } = useListOrgTree();
@@ -52,7 +52,7 @@ export default function Orgs() {
     const onCheck = (checked: React.Key[] | { checked: React.Key[] }) => {
         if (!Array.isArray(checked)) {
             const { checked: checkedValues } = checked;
-            setCheckedKeys(checkedValues.map((key) => Number(key)));
+            setCheckedKeys(checkedValues.map((key) => String(key)));
         }
     };
     // 树节点点击时处理

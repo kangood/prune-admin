@@ -6,7 +6,7 @@ import { dayjsFormat } from '@/utils/helpers';
 
 export interface InputType {
     name?: string;
-    orgId?: number;
+    orgId?: string;
     timeRange?: string;
     rangePicker?: string;
     state?: boolean;
@@ -17,9 +17,9 @@ export interface InputType {
 
 export interface OutputType {
     key?: React.Key;
-    id?: number;
+    id?: string;
     name?: string;
-    orgId?: number;
+    orgId?: string;
     orgMap?: OutputType;
     state?: boolean;
     describe?: string;
@@ -28,12 +28,12 @@ export interface OutputType {
     createdBy?: number;
     updatedAt?: Date;
     updatedBy?: number;
-    createdOrgId?: number;
+    createdOrgId?: string;
 }
 
 interface IProps {
     onOpenFormHandler: (clickOne: OutputType) => void;
-    onDelHandler: (ids: number[]) => void;
+    onDelHandler: (ids: string[]) => void;
 }
 
 export const columns: ({ onOpenFormHandler, onDelHandler }: IProps) => ColumnsType<OutputType> = ({

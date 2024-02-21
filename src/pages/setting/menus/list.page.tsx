@@ -11,11 +11,11 @@ import { ResourceListPage } from './resource-list.page';
 import { PermissionType } from '#/enum';
 
 export interface InputType {
-    id?: number;
+    id?: string;
     // 生成树用
-    parent?: number;
+    parent?: string;
     // 展示用
-    parentId?: number;
+    parentId?: string;
     label?: string;
     resourceType?: string;
     path?: string;
@@ -31,7 +31,7 @@ export interface InputType {
 }
 
 export interface OutputType {
-    id?: number;
+    id?: string;
     key?: number;
     parent?: OutputType;
     children?: OutputType[];
@@ -43,7 +43,7 @@ export interface OutputType {
     mpath?: string;
     icon?: string;
     resourceType?: string;
-    parentId?: number;
+    parentId?: string;
     sortValue?: number;
     state?: boolean;
     describe?: string;
@@ -63,7 +63,7 @@ export default function Menus() {
         isDef: false,
     };
     // 状态定义
-    const [checkedKeys, setCheckedKeys] = useState<number[]>();
+    const [checkedKeys, setCheckedKeys] = useState<string[]>();
     const [clickOne, setClickOne] = useState<InputType>(defaultClickOne);
     // API-hook
     const { data: listMenuTree } = useListMenuTree();
@@ -73,7 +73,7 @@ export default function Menus() {
     const onCheck = (checked: React.Key[] | { checked: React.Key[] }) => {
         if (!Array.isArray(checked)) {
             const { checked: checkedValues } = checked;
-            setCheckedKeys(checkedValues.map((key) => Number(key)));
+            setCheckedKeys(checkedValues.map((key) => String(key)));
         }
     };
     // 树节点点击时处理
@@ -154,7 +154,7 @@ export default function Menus() {
                 <Col span={7}>
                     <Card>
                         <ResourceListPage
-                            clickMenuId={clickOne.id ?? 0}
+                            clickMenuId={clickOne.id ?? ''}
                             clickMenuLabel={clickOne.label}
                             clickMenuResourceType={clickOne.resourceType}
                         />

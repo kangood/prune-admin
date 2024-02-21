@@ -5,7 +5,7 @@ import { OutputType } from './resource-list.page';
 
 interface IProps {
     onOpenFormHandler: (clickOne: OutputType) => void;
-    onDelHandler: (ids: number[]) => void;
+    onDelHandler: (ids: string[]) => void;
 }
 
 export const columns: ({ onOpenFormHandler, onDelHandler }: IProps) => ColumnsType<OutputType> = ({
@@ -45,7 +45,7 @@ export const columns: ({ onOpenFormHandler, onDelHandler }: IProps) => ColumnsTy
                 <Button
                     key="delete"
                     type="link"
-                    onClick={() => onDelHandler([record.id as number])}
+                    onClick={() => onDelHandler([record.id as string])}
                 >
                     删除
                 </Button>

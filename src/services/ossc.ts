@@ -51,7 +51,7 @@ export const useCreateOssc = () => {
  * 删除多个用户
  */
 export const useDeleteOssc = () => {
-    return useMutation(async (ids: number[]) => service.delete('/ossc', { data: { ids } }), {
+    return useMutation(async (ids: string[]) => service.delete('/ossc', { data: { ids } }), {
         onSuccess: () => {
             globalSuccess();
             queryClient.invalidateQueries(['listOsscRelate']);

@@ -34,7 +34,7 @@ export default function Osscs() {
         setShowInfo(true);
     };
     // 删除处理器，点击删除按钮触发API调用
-    const onDelHandler = async (ids: number[]) => {
+    const onDelHandler = async (ids: string[]) => {
         delMutate(ids);
     };
     // 关闭模态窗口并刷新数据
@@ -53,7 +53,7 @@ export default function Osscs() {
     };
     // 批量删除处理
     const [selectedRowKeys, setSelectedRowKeys] = useState<React.Key[]>([]);
-    const [selectedIds, setSelectedIds] = useState<number[]>();
+    const [selectedIds, setSelectedIds] = useState<string[]>();
     const batchDelHandler = async () => {
         if (!selectedIds) {
             message.error('请勾选数据之后删除');
@@ -72,7 +72,7 @@ export default function Osscs() {
             // 用于显示勾选项
             setSelectedRowKeys(newSelectedRowKeys);
             // 删除时的ids传值
-            const ids: number[] = [];
+            const ids: string[] = [];
             selectedRows.forEach((val, index) => {
                 ids[index] = val.id!;
             });

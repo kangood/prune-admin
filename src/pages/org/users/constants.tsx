@@ -9,7 +9,7 @@ import { OutputType as StationMap } from '../stations/constants';
 
 export interface InputType {
     name?: string;
-    orgId?: number;
+    orgId?: string;
     timeRange?: string;
     rangePicker?: string;
     state?: boolean;
@@ -20,15 +20,15 @@ export interface InputType {
 
 export interface OutputType {
     key?: React.Key;
-    id?: number;
+    id?: string;
     account?: string;
     name?: string;
     email?: string;
     password?: string;
     mobile?: string;
-    orgId?: number;
+    orgId?: string;
     orgMap?: OrgMap;
-    stationId?: number;
+    stationId?: string;
     stationMap?: StationMap;
     sex?: string;
     state?: boolean;
@@ -38,12 +38,12 @@ export interface OutputType {
     createdBy?: number;
     updatedAt?: Date;
     updatedBy?: number;
-    createdOrgId?: number;
+    createdOrgId?: string;
 }
 
 interface IProps {
     onOpenFormHandler: (clickOne: OutputType) => void;
-    onDelHandler: (ids: number[]) => void;
+    onDelHandler: (ids: string[]) => void;
     onOpenDetailHanler: (clickOne: OutputType) => void;
     onOpenResetPwdHanler: (clickOne: OutputType) => void;
 }

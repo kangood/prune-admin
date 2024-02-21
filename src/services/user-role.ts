@@ -5,20 +5,20 @@ import { queryClient } from '@/http/tanstack/react-query';
 import { globalSuccess } from '@/utils/antd-extract';
 
 interface InputType {
-    roleId: number;
-    userIdList?: number[];
+    roleId: string;
+    userIdList?: string[];
 }
 
 export interface OutputType {
-    id: number;
-    userId: number;
-    roleId: number;
+    id: string;
+    userId: string;
+    roleId: string;
 }
 
 /**
  * 根据角色ID查询用户角色关联
  */
-export const useListUserRoleRelate = (roleId: number, shouldFetch: boolean) => {
+export const useListUserRoleRelate = (roleId: string, shouldFetch: boolean) => {
     return useQuery<OutputType[]>(
         ['listUserRoleRelate', roleId, shouldFetch],
         async () =>

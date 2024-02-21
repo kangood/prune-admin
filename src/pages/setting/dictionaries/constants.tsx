@@ -11,7 +11,7 @@ export interface InputType {
 }
 
 export interface OutputType {
-    id?: number;
+    id?: string;
     type: string;
     label: string;
     code?: string;
@@ -36,12 +36,12 @@ export interface DictMapListType {
 
 interface IPropsLeft {
     onOpenFormHandlerLeft: (clickDict: OutputType) => void;
-    onDelHandlerLeft: (ids: number[]) => void;
+    onDelHandlerLeft: (ids: string[]) => void;
 }
 
 interface IProps {
     onOpenFormHandler: (clickDict: OutputType) => void;
-    onDelHandler: (ids: number[]) => void;
+    onDelHandler: (ids: string[]) => void;
 }
 
 export const listTypeColumns: ({

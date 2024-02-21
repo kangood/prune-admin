@@ -46,7 +46,7 @@ export const useCreateResource = () => {
  * 删除多个用户
  */
 export const useDeleteResource = () => {
-    return useMutation(async (ids: number[]) => service.delete('resource', { data: { ids } }), {
+    return useMutation(async (ids: string[]) => service.delete('resource', { data: { ids } }), {
         onSuccess: () => {
             globalSuccess();
             queryClient.invalidateQueries(['listResource']);
