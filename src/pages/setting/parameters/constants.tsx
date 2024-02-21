@@ -61,7 +61,7 @@ export const columns: ({ onOpenFormHandler, onDelHandler }: IProps) => ColumnsTy
     {
         title: '创建时间',
         dataIndex: 'createdAt',
-        width: 170,
+        width: 180,
         render: (createdAt) => dayjsFormat(createdAt),
     },
     {

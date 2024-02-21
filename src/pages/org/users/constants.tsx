@@ -86,7 +86,6 @@ export const columns: ({
         title: '姓名',
         dataIndex: 'name',
         fixed: 'left',
-        width: 100,
     },
     {
         title: '性别',
@@ -105,14 +104,13 @@ export const columns: ({
         ellipsis: {
             showTitle: false,
         },
-        width: 100,
     },
     {
         title: '民族',
         dataIndex: 'userEchoDto',
         key: 'nation',
         render: (userEchoDto) => userEchoDto?.nation,
-        width: 80,
+        width: 110,
     },
     {
         title: '学历',
@@ -147,7 +145,6 @@ export const columns: ({
         ellipsis: {
             showTitle: false,
         },
-        width: 100,
     },
     {
         title: '状态',
@@ -158,6 +155,7 @@ export const columns: ({
     {
         title: '创建时间',
         dataIndex: 'createdAt',
+        width: 180,
         render: (createdAt) => dayjsFormat(createdAt),
     },
     {

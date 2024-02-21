@@ -119,7 +119,7 @@ export const listColumns: ({
     {
         title: '创建时间',
         dataIndex: 'createdAt',
-        width: 200,
+        width: 180,
         render: (createdAt) => dayjsFormat(createdAt),
     },
     {

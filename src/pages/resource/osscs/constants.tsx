@@ -81,7 +81,7 @@ export const columns: ({
         ellipsis: {
             showTitle: false,
         },
-        width: 250,
+        width: 280,
     },
     {
         title: '空间名',
@@ -107,7 +107,6 @@ export const columns: ({
         ellipsis: {
             showTitle: false,
         },
-        width: 200,
     },
     {
         title: 'secretKey',
@@ -120,7 +119,6 @@ export const columns: ({
         ellipsis: {
             showTitle: false,
         },
-        width: 200,
     },
     {
         title: '描述',
@@ -130,6 +128,7 @@ export const columns: ({
     {
         title: '创建时间',
         dataIndex: 'createdAt',
+        width: 180,
         render: (createdAt) => dayjsFormat(createdAt),
     },
     {
