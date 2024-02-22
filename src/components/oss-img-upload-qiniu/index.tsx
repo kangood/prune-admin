@@ -7,12 +7,10 @@ import { service } from '@/http/axios/service';
 import type { RcFile, UploadFile, UploadProps } from 'antd/es/upload/interface';
 
 interface OSSDataType {
-    dir: string;
-    expire: string;
     host: string;
-    accessId: string;
-    policy: string;
-    signature: string;
+    dir: string;
+    token: string;
+    expire: number;
 }
 
 interface OSSUploadProps {
@@ -20,15 +18,10 @@ interface OSSUploadProps {
     onChange?: (file?: UploadFile) => void;
 }
 
-export const OSSImageUpload = ({ value, onChange }: OSSUploadProps) => {
-    // 处理value，查询的时候传过来是一个URL字符串，所以需要把URL转换成Upload识别的对象
-    if (typeof value === 'string') {
-        // eslint-disable-next-line no-param-reassign
-        value = { name: 'image', uid: `__AUTO__${Date.now()}_0__`, url: value, status: 'done' };
-    }
-    // 获取阿里OSS信息
-    const { data: OSSData, refetch } = useQuery<OSSDataType>(['getAliOSSInfo'], () =>
-        service.get('/oss/getAliOSSInfo').then((res) => res.data),
+export const OSSImageUploadQiniu = ({ value, onChange }: OSSUploadProps) => {
+    // 获取七牛OSS信息
+    const { data: OSSData, refetch } = useQuery<OSSDataType>(['getQiniuOSSInfo'], () =>
+        service.get('/oss-middleware/getQiniuOSSInfo').then((res) => res.data),
     );
 
     /**
@@ -75,13 +68,11 @@ export const OSSImageUpload = ({ value, onChange }: OSSUploadProps) => {
     };
 
     /**
-     * 传入Antd定义的阿里OSS上传信息
+     * 传入七牛云OSS上传信息
      */
     const getExtraData: UploadProps['data'] = (file) => ({
+        token: OSSData?.token,
         key: getKey(file).key,
-        OSSAccessKeyId: OSSData?.accessId,
-        policy: OSSData?.policy,
-        Signature: OSSData?.signature,
     });
 
     /**
@@ -90,9 +81,7 @@ export const OSSImageUpload = ({ value, onChange }: OSSUploadProps) => {
     const beforeUpload: UploadProps['beforeUpload'] = async (file) => {
         if (!OSSData) return false;
 
-        const expire = Number(OSSData.expire) * 1000;
-
-        if (expire < Date.now()) {
+        if (OSSData.expire < Date.now()) {
             await refetch();
         }
         return file;
@@ -103,7 +92,7 @@ export const OSSImageUpload = ({ value, onChange }: OSSUploadProps) => {
             <Upload
                 name="file"
                 listType="picture-card"
-                action={OSSData?.host}
+                action="http://upload-z2.qiniu.com"
                 fileList={value ? [value] : []}
                 data={getExtraData}
                 onChange={handleChange}
@@ -116,7 +105,7 @@ export const OSSImageUpload = ({ value, onChange }: OSSUploadProps) => {
     );
 };
 
-OSSImageUpload.defaultProps = {
+OSSImageUploadQiniu.defaultProps = {
     value: null,
     onChange: () => {},
 };

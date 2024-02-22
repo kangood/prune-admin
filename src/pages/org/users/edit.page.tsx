@@ -1,7 +1,7 @@
 import { Form, Input, Modal, Radio, Select, Tooltip, TreeSelect } from 'antd';
 import { useState } from 'react';
 
-import { OSSImageUpload } from '@/components/oss-img-upload';
+import { OSSImageUploadQiniu } from '@/components/oss-img-upload-qiniu';
 import { DictMapListType } from '@/pages/setting/dictionaries/constants';
 import { useListOrgTree } from '@/services/org';
 import { useListStation } from '@/services/station';
@@ -83,7 +83,7 @@ export const UserEditForm: React.FC<UserEditFormProps> = ({ clickOne, onClose, d
                     </Form.Item>
                 )}
                 <Form.Item name="avatar" label="头像">
-                    <OSSImageUpload />
+                    <OSSImageUploadQiniu />
                 </Form.Item>
                 <Form.Item name="orgId" label="机构">
                     <TreeSelect
