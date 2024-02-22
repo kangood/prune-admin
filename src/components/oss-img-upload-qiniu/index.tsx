@@ -19,6 +19,10 @@ interface OSSUploadProps {
 }
 
 export const OSSImageUploadQiniu = ({ value, onChange }: OSSUploadProps) => {
+    // 处理value，查询的时候传过来是一个URL字符串，所以需要把URL转换成Upload识别的对象
+    if (typeof value === 'string') {
+        value = { name: 'image', uid: `__AUTO__${Date.now()}_0__`, url: value, status: 'done' };
+    }
     // 获取七牛OSS信息
     const { data: OSSData, refetch } = useQuery<OSSDataType>(['getQiniuOSSInfo'], () =>
         service.get('/oss-middleware/getQiniuOSSInfo').then((res) => res.data),
