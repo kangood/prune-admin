@@ -140,7 +140,7 @@ export default function Menus() {
                                     // 点击树节点触发
                                     onSelect={onSelect}
                                     treeData={listMenuTree as DataNode[]}
-                                    fieldNames={{ title: 'label', key: 'id' }}
+                                    fieldNames={{ title: 'name', key: 'id' }}
                                 />
                             )}
                         </Row>

@@ -98,9 +98,16 @@ export const MenuEditForm: React.FC<MenuEditFormProps> = ({ clickOne }: MenuEdit
                 <Input disabled />
             </Form.Item>
             <Form.Item
-                name="label"
+                name="name"
                 label="名称"
                 rules={[{ required: true, message: '名称不能为空' }]}
+            >
+                <Input />
+            </Form.Item>
+            <Form.Item
+                name="label"
+                label="标签"
+                rules={[{ required: true, message: '标签不能为空' }]}
             >
                 <Input />
             </Form.Item>
