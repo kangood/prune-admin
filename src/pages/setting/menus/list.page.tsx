@@ -101,7 +101,7 @@ export default function Menus() {
     return (
         <div>
             <Row gutter={8}>
-                <Col span={6}>
+                <Col span={5}>
                     <Card>
                         <Row>
                             <Form form={form} onFinish={() => message.success('还没做')}>
@@ -112,13 +112,9 @@ export default function Menus() {
                                     </Button>
                                 </Space>
                                 <Space>
-                                    <span className="text-base">菜单列表</span>
-                                    <Form.Item name="name">
-                                        <Input
-                                            className="mt-6 w-32"
-                                            placeholder="搜索"
-                                            allowClear
-                                        />
+                                    <span className="text-sm font-bold">菜单列表</span>
+                                    <Form.Item className="w-40" name="name">
+                                        <Input className="mt-6" placeholder="搜索" allowClear />
                                     </Form.Item>
                                     <Form.Item name="search">
                                         <Button
@@ -148,12 +144,12 @@ export default function Menus() {
                         </Row>
                     </Card>
                 </Col>
-                <Col span={11}>
+                <Col span={10}>
                     <Card title={clickOne.id ? '修改' : '新增'}>
                         <MenuEditForm clickOne={clickOne} />
                     </Card>
                 </Col>
-                <Col span={7}>
+                <Col span={9}>
                     <Card>
                         <ResourceListPage
                             clickMenuId={clickOne.id ?? ''}
