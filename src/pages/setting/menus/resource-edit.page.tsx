@@ -19,7 +19,7 @@ export const ResourceEditForm: React.FC<ResourceEditFormProps> = ({
     // 表单提交处理
     const submitHandle = async () => {
         const values = await form.validateFields();
-        values.menuLabel = undefined;
+        values.menuName = undefined;
         if (clickReourceOne?.id) {
             updateMutate(values);
         } else {
@@ -43,7 +43,7 @@ export const ResourceEditForm: React.FC<ResourceEditFormProps> = ({
                 <Form.Item name="menuId" hidden>
                     <Input />
                 </Form.Item>
-                <Form.Item name="menuLabel" label="所属菜单">
+                <Form.Item name="menuName" label="所属菜单">
                     <Input disabled />
                 </Form.Item>
                 <Form.Item
