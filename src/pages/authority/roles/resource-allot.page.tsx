@@ -46,8 +46,8 @@ export interface InputType {
  */
 export const traverseTree = (node: OutputType) => {
     // 处理节点的标签值
-    node.label = `${node.resourceType === PermissionType.MENU ? '「菜单」' : '「数据」'}${
-        node.label
+    node.name = `${node.resourceType === PermissionType.BUTTON ? '「按钮」' : '「菜单」'}${
+        node.name
     }`;
     // 递归处理子节点
     node.children = node.children?.map((childNode) => traverseTree(childNode));
@@ -262,7 +262,7 @@ export const ResourceAllotPage: React.FC<ResourceAllotPageProps> = ({
                                 // 是否自动展开父节点
                                 // autoExpandParent
                                 treeData={treeData as DataNode[]}
-                                fieldNames={{ title: 'label', key: 'id' }}
+                                fieldNames={{ title: 'name', key: 'id' }}
                             />
                         </Row>
                     </Card>
