@@ -16,6 +16,7 @@ export interface InputType {
     parent?: string;
     // 展示用
     parentId?: string;
+    name?: string;
     label?: string;
     resourceType?: string;
     path?: string;
@@ -36,6 +37,7 @@ export interface OutputType {
     parent?: OutputType;
     children?: OutputType[];
     depth?: number;
+    name?: string;
     label?: string;
     path?: string;
     component?: string;
@@ -155,7 +157,7 @@ export default function Menus() {
                     <Card>
                         <ResourceListPage
                             clickMenuId={clickOne.id ?? ''}
-                            clickMenuLabel={clickOne.label}
+                            clickMenuName={clickOne.name}
                             clickMenuResourceType={clickOne.resourceType}
                         />
                     </Card>

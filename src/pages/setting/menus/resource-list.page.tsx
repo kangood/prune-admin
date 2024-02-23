@@ -12,7 +12,7 @@ import { PermissionType } from '#/enum';
 
 interface ResourceListPageProps {
     clickMenuId: string;
-    clickMenuLabel: string | undefined;
+    clickMenuName: string | undefined;
     clickMenuResourceType: string | undefined;
 }
 
@@ -29,13 +29,13 @@ export interface InputType {
 export interface OutputType {
     id?: string;
     menuId?: string;
-    menuLabel?: string;
+    menuName?: string;
     // ...
 }
 
 export const ResourceListPage: React.FC<ResourceListPageProps> = ({
     clickMenuId,
-    clickMenuLabel,
+    clickMenuName,
     clickMenuResourceType,
 }) => {
     const [form] = Form.useForm();
@@ -105,7 +105,7 @@ export const ResourceListPage: React.FC<ResourceListPageProps> = ({
     const [clickReourceOne, setClickReourceOne] = useState<OutputType>();
     const [resourceEditShowInfo, setResourceEditShowInfo] = useState<boolean>(false);
     const onOpenFormHandler = (record?: OutputType) => {
-        const newRecord = { ...record, menuLabel: clickMenuLabel };
+        const newRecord = { ...record, menuName: clickMenuName };
         if (newRecord) {
             setClickReourceOne(newRecord);
         } else {
@@ -158,7 +158,7 @@ export const ResourceListPage: React.FC<ResourceListPageProps> = ({
             </Form>
             <Space>
                 <span className="text-sm">
-                    {clickMenuLabel ? `【${clickMenuLabel}】` : ''}资源列表
+                    {clickMenuName ? `【${clickMenuName}】` : ''}资源列表
                 </span>
                 <Space>
                     <Button
