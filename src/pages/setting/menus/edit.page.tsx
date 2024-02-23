@@ -115,23 +115,7 @@ export const MenuEditForm: React.FC<MenuEditFormProps> = ({ clickOne }: MenuEdit
                 name="resourceType"
                 label="类型"
                 rules={[{ required: true, message: '类型不能为空' }]}
-                render={(children) => (
-                    <div>
-                        <Popover
-                            color="#404040"
-                            content={
-                                <div className="text-white">
-                                    菜单：即左侧显示的菜单（肉眼可见的菜单）（包括N级菜单）
-                                    <br />
-                                    数据：即页面或视图请求后台接口时，返回不同的数据，参考用户管理、岗位管理
-                                </div>
-                            }
-                        >
-                            <InfoCircleOutlined className="mt-2" />
-                        </Popover>
-                        {children}
-                    </div>
-                )}
+                render={(children) => <div>{children}</div>}
             >
                 <Radio.Group className="mx-3" buttonStyle="solid" onChange={onChangeResourceType}>
                     {dictListTypes?.RESOURCE_TYPE &&
