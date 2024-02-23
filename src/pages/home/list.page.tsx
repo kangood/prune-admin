@@ -197,7 +197,7 @@ export default function Home() {
                         <div className="mt-6">
                             <Avatar
                                 size="large"
-                                src="https://water-drop-resources.oss-cn-chengdu.aliyuncs.com/images/rc-upload-1694484623067-25.jpg"
+                                src="https://qiniu.panlore.top/project/tealamp/rc-upload-1708587296972-8.jpg"
                             />
                         </div>
                         <div className="mb-6 w-full px-4 sm:p-4">
