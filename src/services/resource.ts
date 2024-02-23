@@ -9,12 +9,17 @@ import { globalSuccess } from '@/utils/antd-extract';
  * 关联其他的列表查询
  */
 export const useListResource = (values?: InputType) => {
-    return useQuery(['listResource', values], () =>
-        service
-            .get('resource', {
-                params: values,
-            })
-            .then((res) => res.data),
+    return useQuery(
+        ['listResource', values],
+        () =>
+            service
+                .get('resource', {
+                    params: values,
+                })
+                .then((res) => res.data),
+        {
+            enabled: values?.menuId !== '',
+        },
     );
 };
 
