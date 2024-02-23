@@ -51,7 +51,6 @@ export const listTypeColumns: ({
     {
         title: '类型',
         dataIndex: 'type',
-        width: 120,
         render: (type) => (
             <Tooltip placement="topLeft" title={type}>
                 {type}
