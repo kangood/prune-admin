@@ -113,7 +113,7 @@ export const columns: ({
                         onClick={() => onOpenRoleAllotHandler(record.id!)}
                     />
                 </Tooltip>
-                <Tooltip title="分配菜单">
+                <Tooltip title="分配资源">
                     <Button
                         key="menuAction"
                         type="text"
