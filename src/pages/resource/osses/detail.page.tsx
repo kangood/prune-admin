@@ -5,13 +5,13 @@ import { dayjsFormat } from '@/utils/helpers';
 
 import { OutputType } from './constants';
 
-interface OsscDetailPageProps {
+interface OssDetailPageProps {
     clickOne?: OutputType;
     dictListTypes: DictMapListType | undefined;
     onClose: () => void;
 }
 
-export const OsscDetailPage: React.FC<OsscDetailPageProps> = ({
+export const OssDetailPage: React.FC<OssDetailPageProps> = ({
     clickOne,
     dictListTypes,
     onClose,

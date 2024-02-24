@@ -1,20 +1,20 @@
 import { Form, Input, Modal, Radio } from 'antd';
 
 import { DictMapListType } from '@/pages/setting/dictionaries/constants';
-import { useCreateOssc, useUpdateOssc } from '@/services/ossc';
+import { useCreateOss, useUpdateOss } from '@/services/oss';
 
 import { OutputType } from './constants';
 
-interface OsscEditFormProps {
+interface OssEditFormProps {
     clickOne?: OutputType;
     onClose: () => void;
     dictListTypes: DictMapListType | undefined;
 }
 
-export const OsscEditForm: React.FC<OsscEditFormProps> = ({ clickOne, onClose, dictListTypes }) => {
+export const OssEditForm: React.FC<OssEditFormProps> = ({ clickOne, onClose, dictListTypes }) => {
     const [form] = Form.useForm();
-    const { mutateAsync: updateMutate } = useUpdateOssc();
-    const { mutateAsync: createMutate } = useCreateOssc();
+    const { mutateAsync: updateMutate } = useUpdateOss();
+    const { mutateAsync: createMutate } = useCreateOss();
     // 表单提交处理
     const submitHandle = async () => {
         const values = await form.validateFields();

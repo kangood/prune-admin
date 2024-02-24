@@ -165,7 +165,7 @@
             },
             "resource": {
                 "index": "Resource",
-                "ossc": "Oss"
+                "oss": "Oss"
             }
         }
     }

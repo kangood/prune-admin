@@ -2,19 +2,19 @@ import { Form, Row, Col, Input, Button, Table, Pagination, message, Select, Card
 import { useState } from 'react';
 
 import { useDictListTypes } from '@/services/dictionary';
-import { useDeleteOssc, useListOsscRelate } from '@/services/ossc';
+import { useDeleteOss, useListOssRelate } from '@/services/oss';
 
 import { InputType, OutputType, columns } from './constants';
-import { OsscDetailPage } from './detail.page';
-import { OsscEditForm } from './edit.page';
+import { OssDetailPage } from './detail.page';
+import { OssEditForm } from './edit.page';
 
-export default function Osscs() {
+export default function Osss() {
     const [form] = Form.useForm();
     // 状态定义
     const [listRelateParams, setListRelateParams] = useState<InputType>();
     // API-hooks
-    const { data, isLoading } = useListOsscRelate(listRelateParams);
-    const { mutateAsync: delMutate } = useDeleteOssc();
+    const { data, isLoading } = useListOssRelate(listRelateParams);
+    const { mutateAsync: delMutate } = useDeleteOss();
     const { data: dictListTypes } = useDictListTypes("'OSSC_CATEGORY'");
     // ==========逻辑处理==========
     // 表单提交
@@ -177,7 +177,7 @@ export default function Osscs() {
                 />
                 {/* 弹出层表单 */}
                 {showInfo && (
-                    <OsscEditForm
+                    <OssEditForm
                         clickOne={clickOne}
                         onClose={closeAndRefetchHandler}
                         dictListTypes={dictListTypes}
@@ -185,7 +185,7 @@ export default function Osscs() {
                 )}
                 {/* 详情页弹出页面 */}
                 {showInfoDetail && (
-                    <OsscDetailPage
+                    <OssDetailPage
                         clickOne={clickOne}
                         dictListTypes={dictListTypes}
                         onClose={() => setShowInfoDetail(false)}

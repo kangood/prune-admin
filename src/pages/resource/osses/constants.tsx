@@ -59,9 +59,9 @@ export const columns: ({
 }) => [
     {
         title: '种类',
-        dataIndex: 'osscEchoDto',
+        dataIndex: 'ossEchoDto',
         key: 'category',
-        render: (osscEchoDto) => <Tag color="blue">{osscEchoDto?.category}</Tag>,
+        render: (ossEchoDto) => <Tag color="blue">{ossEchoDto?.category}</Tag>,
         width: 100,
         fixed: 'left',
     },
