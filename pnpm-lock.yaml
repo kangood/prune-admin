@@ -598,7 +598,6 @@ packages:
       fs-readdir-recursive: 1.1.0
       glob: 7.2.3
       make-dir: 2.1.0
-      slash: 2.0.0
     optionalDependencies:
       '@nicolo-ribaudo/chokidar-2': 2.1.8-no-fsevents.3
       chokidar: 3.5.3
@@ -5936,7 +5935,6 @@ packages:
       fast-glob: 3.3.1
       ignore: 5.2.4
       merge2: 1.4.1
-      slash: 3.0.0
     dev: true
 
   /globby@9.2.0:
@@ -5950,7 +5948,6 @@ packages:
       glob: 7.2.3
       ignore: 4.0.6
       pify: 4.0.1
-      slash: 2.0.0
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -10293,15 +10290,6 @@ packages:
     resolution: {integrity: sha512-2NCmWxY7A9pYKGXNBfteo4hy14gWu47rg5692peVMst6lQLPKrVjhY+UTEsPI5ceFRJSl3gVgMYaUi/hKuaiKw==}
     dev: true
 
-  /slash@2.0.0:
-    resolution: {integrity: sha512-ZYKh3Wh2z1PpEXWr0MpSBZ0V6mZHAQfYevttO11c51CaWjGTaadiKZ+wVt1PbMlDV5qhMFslpZCemhwOK7C89A==}
-    engines: {node: '>=6'}
-
-  /slash@3.0.0:
-    resolution: {integrity: sha512-g9Q1haeby36OSStwb4ntCGGGaKsaVSjQ68fBxoQcutl5fS1vuY18H3wSt3jFyFtrkx+Kz0V1G85A4MyAdDMi2Q==}
-    engines: {node: '>=8'}
-    dev: true
-
   /slice-ansi@2.1.0:
     resolution: {integrity: sha512-Qu+VC3EwYLldKa1fCxuuvULvSJOKEgk9pi8dZeCVK7TqBfUNTH4sFkk4joj8afVSfAYgJoSOetjx9QWOJ5mYoQ==}
     engines: {node: '>=6'}
@@ -10882,7 +10870,6 @@ packages:
       postcss-value-parser: 3.3.1
       resolve-from: 4.0.0
       signal-exit: 3.0.7
-      slash: 2.0.0
       specificity: 0.4.1
       string-width: 3.1.0
       style-search: 0.1.0

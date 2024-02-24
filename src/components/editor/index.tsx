@@ -9,7 +9,7 @@ import { StyledEditor } from './styles';
 interface Props extends ReactQuillProps {
     sample?: boolean;
 }
-export default function Editor({ id = 'slash-quill', sample = false, ...other }: Props) {
+export default function Editor({ id = 'prune-quill', sample = false, ...other }: Props) {
     const token = useThemeToken();
     const { themeMode } = useSettings();
     const modules = {

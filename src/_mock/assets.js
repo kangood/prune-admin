@@ -501,7 +501,7 @@ export const ROLE_LIST = [ADMIN_ROLE, TEST_ROLE];
  */
 export const DEFAULT_USER = {
     id: faker.string.uuid(),
-    account: 'lamp',
+    account: 'prune',
     email: faker.internet.email(),
     avatar: faker.image.avatarLegacy(),
     createdAt: faker.date.anytime(),
@@ -512,7 +512,7 @@ export const DEFAULT_USER = {
 };
 export const TEST_USER = {
     id: faker.string.uuid(),
-    account: 'lamp_pt',
+    account: 'prune_pt',
     password: '123456',
     email: faker.internet.email(),
     avatar: faker.image.avatarLegacy(),

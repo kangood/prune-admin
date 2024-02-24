@@ -78,7 +78,7 @@ export default function Header({ className = '', offsetTop = false }: Props) {
                         <SearchBar />
                         <LocalePicker />
                         <IconButton
-                            onClick={() => window.open('https://github.com/d3george/slash-admin')}
+                            onClick={() => window.open('https://github.com/KangodYan/prune-admin')}
                         >
                             <Iconify icon="mdi:github" size={24} />
                         </IconButton>

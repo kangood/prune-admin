@@ -138,10 +138,10 @@ export default function Home() {
                         <div className="mx-3 inline-block h-4 w-[1px] bg-[#dcdfe6]" />
                         <Button
                             className="text-blue-500 bg-[#e8f4ff]"
-                            href="https://github.com/KangodYan/tealamp-admin-react"
+                            href="https://github.com/KangodYan/prune-admin"
                             target="_blank"
                         >
-                            Tealamp 快速开发平台
+                            Prune 快速开发平台
                         </Button>
                         <div className="mx-3 inline-block h-4 w-[1px] bg-[#dcdfe6]" />
                         <span>立即去点个star吧~</span>
@@ -151,11 +151,11 @@ export default function Home() {
                         <span>账号密码</span>
                         <div className="mx-3 inline-block h-4 w-[1px] bg-[#dcdfe6]" />
                         <Button className="text-blue-500 border-blue-500">
-                            平台管理员 (lamp_pt)
+                            平台管理员 (prune_pt)
                         </Button>
                         <div className="mx-3 inline-block h-4 w-[1px] bg-[#dcdfe6]" />
                         <Button className="text-green-500 border-green-500">
-                            超级管理员 (lamp)
+                            超级管理员 (prune)
                         </Button>
                         <div className="mx-3 inline-block h-4 w-[1px] bg-[#dcdfe6]" />
                         <Button> 普通用户 (normal)</Button>
@@ -169,15 +169,15 @@ export default function Home() {
                             href="https://github.com/KangodYan/tealamp-api-nestjs"
                             target="_blank"
                         >
-                            Tealamp 后端服务
+                            Prune 后端服务
                         </Button>
                         <div className="mx-3 inline-block h-4 w-[1px] bg-[#dcdfe6]" />
                         <Button
                             className="bg-green-400 text-white"
-                            href="https://github.com/KangodYan/tealamp-admin-react"
+                            href="https://github.com/KangodYan/prune-admin"
                             target="_blank"
                         >
-                            Tealamp 后台管理 (本项目)
+                            Prune 后台管理 (本项目)
                         </Button>
                     </div>
                 </div>
@@ -197,7 +197,7 @@ export default function Home() {
                         <div className="mt-6">
                             <Avatar
                                 size="large"
-                                src="https://qiniu.panlore.top/project/tealamp/rc-upload-1708587296972-8.jpg"
+                                src="https://qiniu.panlore.top/project/prune/rc-upload-1708587296972-8.jpg"
                             />
                         </div>
                         <div className="mb-6 w-full px-4 sm:p-4">
