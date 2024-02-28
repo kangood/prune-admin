@@ -15,7 +15,7 @@ Prune Admin 是一个现代化风格的快速开发平台，基于 React 18、Vi
 
 ![login.png](https://qiniu.panlore.top/project/prune/20240224191913.png)
 ![home.png](https://qiniu.panlore.top/project/prune/20240224192244.png)
-![menu.png](https://qiniu.panlore.top/project/prune/20240224192105.png)
+![menu.png](https://qiniu.panlore.top/project/prune/20240228190854.png)
 
 ## 特性
 
