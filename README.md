@@ -11,7 +11,7 @@
 Prune Admin 是一个现代化风格的快速开发平台，基于 React 18、Vite、Ant Design 和 TypeScript 构建。它旨在帮助开发人员快速搭建功能强大的后台管理系统。
 
 ## 预览
-+ https://prune.kangod.com
++ https://prune.kangod.top
 
 ![login.png](https://qiniu.panlore.top/project/prune/20240224191913.png)
 ![home.png](https://qiniu.panlore.top/project/prune/20240224192244.png)
