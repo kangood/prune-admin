@@ -13,9 +13,9 @@ Prune Admin 是一个现代化风格的快速开发平台，基于 React 18、Vi
 ## 预览
 + https://prune.kangod.top
 
-![login.png](https://qiniu.panlore.top/project/prune/20240224191913.png)
-![home.png](https://qiniu.panlore.top/project/prune/20240224192244.png)
-![menu.png](https://qiniu.panlore.top/project/prune/20240228190854.png)
+![sign-in.png](https://qiniu.panlore.top/project/prune/sign-in-english.png)
+![menu.png](https://qiniu.panlore.top/project/prune/menu-black.png)
+![home.png](https://qiniu.panlore.top/project/prune/home.png)
 
 ## 特性
 
@@ -28,7 +28,7 @@ Prune Admin 是一个现代化风格的快速开发平台，基于 React 18、Vi
 - 集成国际化支持，轻松切换多语言
 - 可定制的主题和样式，使用 TailwindCSS 原子化操作按需使用
 - 灵活的路由配置，支持多级嵌套路由
-- 集成权限管理，根据用户角色控制页面以及细化到按钮的访问权限
+- 集成权限管理，根据用户角色控制页面以及细化到按钮的访问权限（待完善）
 - 使用 Zustand 进行状态管理
 - 使用 React-Query 进行数据获取
 - 响应式设计，适应各种屏幕尺寸和设备
