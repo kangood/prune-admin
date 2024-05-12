@@ -23,7 +23,7 @@ Prune Admin 是一个现代化风格的快速开发平台，基于 React 18、Vi
 - 基于 Vite 进行快速开发和热模块替换
 - 集成 Ant Design，提供丰富的 UI 组件和设计模式
 - 使用 TypeScript 编写，提供类型安全性和更好的开发体验
-- 使用 Node.js 流行框架 NestJS [集成后端](https://github.com/KangodYan/prune-api)，提供数据服务
+- 使用 Node.js 流行框架 NestJS 集成后端 [ prune-api](https://github.com/KangodYan/prune-api)，提供数据服务
 - 集成常见的后台管理功能，如用户管理、角色管理、菜单管理、地区管理等
 - 集成国际化支持，轻松切换多语言
 - 可定制的主题和样式，使用 TailwindCSS 原子化操作按需使用
