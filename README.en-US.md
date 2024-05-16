@@ -12,9 +12,9 @@ Prune Admin is a modern admin rapid development platform built with React 18, Vi
 ## Preview
 + https://prune.kangod.com
 
-![sign-in.png](https://qiniu.panlore.top/project/prune/sign-in-english.png)
-![menu.png](https://qiniu.panlore.top/project/prune/menu-black.png)
-![home.png](https://qiniu.panlore.top/project/prune/home.png)
+![sign-in.png](https://github.com/KangodYan/prune-admin/assets/36319737/fb9b5118-2fb8-44bc-b15c-529e546cff10)
+![menu-black.png](https://github.com/KangodYan/prune-admin/assets/36319737/d160e725-34be-484c-b84c-e1188e7772e4)
+![home.png](https://github.com/KangodYan/prune-admin/assets/36319737/e9d8dbd4-33e3-4f62-95de-ab2d1aba118d)
 
 ## Features
 
@@ -22,7 +22,7 @@ Prune Admin is a modern admin rapid development platform built with React 18, Vi
 - Powered by Vite for rapid development and hot module replacement
 - Integrates Ant Design, providing a rich set of UI components and design patterns
 - Written in TypeScript, offering type safety and an improved development experience
-- [Integrate backend](https://github.com/KangodYan/prune-api) using the popular Node.js framework NestJS to provide data services
+- Integrate backend [Prune Api](https://github.com/KangodYan/prune-api) using the popular Node.js framework NestJS to provide data services
 - Includes common admin features like user management, role management, menu management, and area management
 - Supports internationalization for easy language switching
 - Customizable themes and styles, Use TailwindCSS for atomic operations with on-demand usage
