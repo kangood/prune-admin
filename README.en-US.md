@@ -12,9 +12,9 @@ Prune Admin is a modern admin rapid development platform built with React 18, Vi
 ## Preview
 + https://prune.kangod.com
 
-![sign-in.png](https://github.com/KangodYan/prune-admin/assets/36319737/fb9b5118-2fb8-44bc-b15c-529e546cff10)
-![menu-black.png](https://github.com/KangodYan/prune-admin/assets/36319737/d160e725-34be-484c-b84c-e1188e7772e4)
-![home.png](https://github.com/KangodYan/prune-admin/assets/36319737/e9d8dbd4-33e3-4f62-95de-ab2d1aba118d)
+![sign-in.png](https://raw.githubusercontent.com/KangodYan/prune-admin/main/src/assets/sign-in.png)
+![menu-black.png](https://raw.githubusercontent.com/KangodYan/prune-admin/main/src/assets/menu-black.png)
+![home.png](https://raw.githubusercontent.com/KangodYan/prune-admin/main/src/assets/home.png)
 
 ## Features
 
