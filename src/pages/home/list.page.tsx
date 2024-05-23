@@ -197,7 +197,7 @@ export default function Home() {
                         <div className="mt-6">
                             <Avatar
                                 size="large"
-                                src="https://qiniu.panlore.top/project/prune/rc-upload-1708587296972-8.jpg"
+                                src="https://qiniu.panlore.top/project/prune/rc-upload-1716455792616-2.jpg"
                             />
                         </div>
                         <div className="mb-6 w-full px-4 sm:p-4">
