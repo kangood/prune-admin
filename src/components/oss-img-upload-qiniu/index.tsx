@@ -96,7 +96,7 @@ export const OSSImageUploadQiniu = ({ value, onChange }: OSSUploadProps) => {
             <Upload
                 name="file"
                 listType="picture-card"
-                action="http://upload-z2.qiniu.com"
+                action="https://up-as0.qiniup.com"
                 fileList={value ? [value] : []}
                 data={getExtraData}
                 onChange={handleChange}
