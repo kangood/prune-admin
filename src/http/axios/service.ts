@@ -27,11 +27,7 @@ service.interceptors.response.use(
         if (error.response)
             switch (error.response.status) {
                 case 401: {
-                    // 如果响应401就把原本的FetcherStore数据设置为空，好让页面跳至登录页
-                    // FetcherStore.setState((state) => {
-                    //     state.token = null;
-                    // });
-                    // // 响应 401 且不是刷新 token 的请求时，去主动调用刷新 token 请求
+                    // 如果 auth/refresh 之外的 api 报 401 错误，就主动去发起刷新 token 的请求
                     if (!error.response.config.url.includes('auth/refresh')) {
                         const res = await refreshTokenApi();
                         if (res.status === 200) {
@@ -39,6 +35,10 @@ service.interceptors.response.use(
                         }
                         message.error('登录过期，请重新登录');
                         return Promise.reject(res.data);
+                    } else {
+                        // 如果 auth/refresh 也 401 了，就清空用户信息和 token，跳转至登录页面
+                        const { clearUserInfoAndToken } = useUserStore.getState().actions;
+                        clearUserInfoAndToken();
                     }
                     break;
                 }
