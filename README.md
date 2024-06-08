@@ -1,6 +1,5 @@
 <div align="center"> 
 <br> 
-<br>
 <h1> Prune Admin </h1>
 </div>
 
@@ -8,7 +7,7 @@
 
 ## 简介
 
-Prune Admin 是一个现代化风格的快速开发平台，基于 React 18、Vite、Ant Design 和 TypeScript 构建。它旨在帮助开发人员快速搭建功能强大的后台管理系统。
+Prune Admin 是一个现代化风格的快速开发平台，前端基于 React 18、Vite、Ant Design 和 TypeScript 构建，后端使用 NestJS 开发：[Prune Api](https://github.com/KangodYan/prune-api)，它旨在帮助开发人员快速搭建功能强大的后台管理系统。
 
 ## 预览
 + https://prune.kangod.top
@@ -68,3 +67,7 @@ pnpm build
 ```
 
 构建后的文件将位于 `dist` 目录中。
+
+## 鸣谢
+
+本项目的前端是在 [slash-admin](https://github.com/d3george/slash-admin) 脚手架基础上进行的开发，我在此基础上集成了后台管理系统常用的一些模块
