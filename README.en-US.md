@@ -6,7 +6,7 @@
 **English** | [中文](./README.zh-CN.md)
 
 ## Introduction
-Prune Admin is a modern admin rapid development platform, Frontend development with React 18, Vite, Ant Design, and TypeScript, Backend development with NestJS: [Prune Api](https://github.com/KangodYan/prune-api). It is designed to help developers quickly create powerful admin management systems.
+Prune Admin is a modern admin rapid development platform, front-end development with React 18, Vite, Ant Design, and TypeScript, back-end development with NestJS: [Prune Api](https://github.com/KangodYan/prune-api). It is designed to help developers quickly create powerful admin management systems.
 
 ## Preview
 + https://prune.kangod.com
@@ -69,4 +69,4 @@ The built files will be in the `dist` directory.
 
 ## express gratitude (esp. in public)
 
-The front-end of this project is built on [slash-admin](https://github.com/d3george/slash-admin) scaffolding based on the development of this, I have integrated the backend management system on the basis of this commonly used some of the modules
+The front-end of this project was built on [slash-admin](https://github.com/d3george/slash-admin) scaffolding basis, on which I developed some of the pages commonly used in the backend management system
