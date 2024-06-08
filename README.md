@@ -70,4 +70,4 @@ pnpm build
 
 ## 鸣谢
 
-本项目的前端是在 [slash-admin](https://github.com/d3george/slash-admin) 脚手架基础上进行的开发，我在此基础上集成了后台管理系统常用的一些模块
+本项目的前端是在 [slash-admin](https://github.com/d3george/slash-admin) 脚手架基础上进行的开发，我在此基础上开发了后台管理系统常用的一些页面
