@@ -67,6 +67,6 @@ pnpm build
 
 The built files will be in the `dist` directory.
 
-## express gratitude (esp. in public)
+## Acknowledgments
 
 The front-end of this project was built on [slash-admin](https://github.com/d3george/slash-admin) scaffolding basis, on which I developed some of the pages commonly used in the backend management system
