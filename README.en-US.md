@@ -9,7 +9,7 @@
 Prune Admin is a modern admin rapid development platform, front-end development with React 18, Vite, Ant Design, and TypeScript, back-end development with NestJS: [Prune Api](https://github.com/kangood/prune-api). It is designed to help developers quickly create powerful admin management systems.
 
 ## Preview
-+ https://prune.kangod.com
++ https://prune.kangod.top
 
 ![sign-in.png](https://raw.githubusercontent.com/kangood/prune-admin/main/src/assets/sign-in.png)
 ![menu-black.png](https://raw.githubusercontent.com/kangood/prune-admin/main/src/assets/menu-black.png)
